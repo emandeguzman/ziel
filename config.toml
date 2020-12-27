@@ -1,0 +1,6 @@
+baseURL = "http://localhost/"
+languageCode = "en-us"
+title = "Solar System"
+
+[markup.goldmark.renderer]
+    unsafe = true

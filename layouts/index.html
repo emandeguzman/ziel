@@ -1,0 +1,67 @@
+{{ define "main" }}
+<canvas id="bg">
+</canvas>
+<canvas id="mid">
+</canvas>
+<canvas id="fg">
+</canvas>
+
+
+{{$canvas        := resources.Get "/js/canvas.js"}}
+{{$canvasItem    := resources.Get "/js/canvasItem.js"}}
+{{$canvasShape   := resources.Get "/js/canvasShape.js"}}
+{{$canvasImage   := resources.Get "/js/canvasImage.js"}}
+{{$celestialBody := resources.Get "/js/celestialBody.js"}}
+{{$intro         := resources.Get "/js/intro.js"   | resources.ExecuteAsTemplate "js/intro.js" . }}
+{{$journey       := resources.Get "/js/journey.js" | resources.ExecuteAsTemplate "js/journey.js" . }}
+
+<script src='{{(slice $canvas $canvasItem $canvasShape $canvasImage $celestialBody $intro $journey | resources.Concat "js/bundle.js" ).Permalink}}'></script>
+
+<script>
+    function tracking(msg) {console.debug(msg)}
+
+    function loadImg(imgurl){
+        return new Promise((resolve,reject)=>{
+            const img = document.createElement("IMG");
+            img.src = imgurl;
+            img.addEventListener("load", ()=>{
+                tracking(`img loaded ${imgurl}`);
+                resolve(img);
+            })
+        })
+    }
+
+    (async ()=>{
+        await new Promise((resolve, reject)=>{
+            domready(()=>{resolve()});
+        })
+
+        tracking("start");
+        const bg = new Canvas("#bg");
+        const mid = new Canvas("#mid");
+        const fg = new Canvas("#fg");
+
+        let step = "intro";
+        step = "journey";
+        loop: {
+            for(;;) {
+                switch(step) {
+                    case "intro":
+                        if (await intro(bg, mid, fg) == "next") {
+                            step = "journey";
+                        }
+                        break;
+                    case "journey":
+                    if (await journey(bg, mid, fg) == "next") {
+                            step = "end";
+                        }
+                        break;
+                    case "end":
+                        tracking("end");
+                        break loop;
+                }
+            }
+        }
+    })();
+</script>
+{{ end }}
