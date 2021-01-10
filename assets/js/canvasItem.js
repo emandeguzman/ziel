@@ -1,4 +1,4 @@
 class CanvasItem {
-    draw = (ctx)=>{}
-    isAt = (ctx, x,y)=>false;
+    draw(ctx){}
+    isAt(ctx, x, y){return false};
 }

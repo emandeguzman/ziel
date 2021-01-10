@@ -23,12 +23,11 @@ return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}});</script>
 <body>
 	
 	
-<canvas id="bg">
-</canvas>
-<canvas id="mid">
-</canvas>
-<canvas id="fg">
-</canvas>
+<canvas id="bg"></canvas>
+<canvas id="mid"></canvas>
+<canvas id="mid1"></canvas>
+<canvas id="mid2"></canvas>
+<canvas id="fg"></canvas>
 
 
 
@@ -38,22 +37,52 @@ return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}});</script>
 
 
 
-<script src='http://localhost/js/bundle.min.js'></script>
+
+
+
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/test.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvas.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvasItem.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvasShape.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvasImage.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/celestialBody.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/intro.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/journey.js'></script>
+
 
 <script>
     function tracking(msg) {console.debug(msg)}
 
+    
+
     function loadImg(imgurl){
-        return new Promise((resolve,reject)=>{
+        return new Promise(resolve => {
+            document.querySelectorAll("img").forEach(img=>{
+                if (img.src == imgurl) {
+                    tracking(`img already loaded ${imgurl}`);
+                    resolve(img);
+                    return;
+                }
+            });
+
             const img = document.createElement("IMG");
+            document.body.appendChild(img);
+            img.style.display = "none";
             img.src = imgurl;
             img.addEventListener("load", ()=>{
                 tracking(`img loaded ${imgurl}`);
                 resolve(img);
             })
+
         })
     }
 
+    function getX(x) { return x;}
+    function getY(y) { return y;}
+    function getWidth(w) { return w;}
+    function getHeight(h) { return h;}
+    function getRadius(r) { return r;}
+    
     (async ()=>{
         await new Promise((resolve, reject)=>{
             domready(()=>{resolve()});
@@ -62,15 +91,22 @@ return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}});</script>
         tracking("start");
         const bg = new Canvas("#bg");
         const mid = new Canvas("#mid");
+        const mid1 = new Canvas("#mid1");
+        const mid2 = new Canvas("#mid2");
         const fg = new Canvas("#fg");
 
         let step = "intro";
+        step = "journey";
         loop: {
             for(;;) {
                 switch(step) {
                     case "intro":
-                        const res = await intro(bg, mid, fg);
-                        if (res == "next") {
+                        if (await intro(bg, mid, fg) == "next") {
+                            step = "journey";
+                        }
+                        break;
+                    case "journey":
+                    if (await journey(bg, mid, mid1, mid2, fg) == "next") {
                             step = "end";
                         }
                         break;
@@ -81,72 +117,6 @@ return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}});</script>
             }
         }
     })();
-
-
-    
-    
-    
-    
-
-    
-    
-
-    
-    
-    
-    
-
-    
-    
-    
-
-    
-    
-    
-
-    
-    
-
-
-    
-    
-    
-    
-    
-
-
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 </script>
 
 	
