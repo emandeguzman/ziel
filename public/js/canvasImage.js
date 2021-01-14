@@ -1,12 +1,18 @@
 class CanvasImage extends CanvasItem {
-    constructor(options) {
+    constructor(img, x, y, w, h, id) {
         super();
-        this.options = options;
+        this.img = img;
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.id = id;
     }
 
-    draw = (ctx)=>{
-        ctx.drawImage(this.options.img, this.options.x, this.options.y, this.options.width, this.options.height);
-    }
+    // get x() {return this._x;}
+    // set x(value) {this._x = value;}
 
-    isAt = (x,y)=>true;
+    // draw(ctx){
+    //     ctx.drawImage(this.img, this.x, this.y, this.w, this.h);
+    // }
 }

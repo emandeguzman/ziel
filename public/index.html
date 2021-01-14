@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Solar System</title>
 
-    <style>body,html{min-width:100vw;min-height:100vh;margin:0;border:0;padding:0}body{position:relative}img{position:absolute;height:0;opacity:0}canvas{position:absolute;top:0;left:0;width:100%;height:100%}body{border:2px solid #f60;box-sizing:border-box}canvas{border:2px solid red;box-sizing:border-box}</style>
+    <style>body,html{min-width:100vw;min-height:calc(100vw * 1080px/1920px);margin:0;border:0;padding:0}body{position:relative}img{position:absolute;height:0;opacity:0}canvas{position:absolute;top:0;left:0;right:0;bottom:0;box-sizing:border-box}</style>
 
     <script>/*!
 * domready (c) Dustin Diaz 2014 - License MIT
@@ -23,99 +23,108 @@ return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}});</script>
 <body>
 	
 	
-<canvas id="bg"></canvas>
-<canvas id="mid"></canvas>
-<canvas id="mid1"></canvas>
-<canvas id="mid2"></canvas>
-<canvas id="fg"></canvas>
+<canvas id="bg"  width="1920" height="1080"></canvas>
+<canvas id="mid" width="1920" height="1080"></canvas>
+<canvas id="fg"  width="1920" height="1080"></canvas>
 
 
 
 
+<script src='http://localhost/js/image.js'></script>
+<script src='http://localhost/js/canvas.js'></script>
+<script src='http://localhost/js/canvasItem.js'></script>
 
+<script src='http://localhost/js/canvasImage.js'></script>
 
-
-
-
-
-
-
-<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/test.js'></script>
-<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvas.js'></script>
-<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvasItem.js'></script>
-<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvasShape.js'></script>
-<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvasImage.js'></script>
-<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/celestialBody.js'></script>
-<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/intro.js'></script>
-<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/journey.js'></script>
+<script src='http://localhost/js/intro.js'></script>
+<script src='http://localhost/js/lesson.js'></script>
 
 
 <script>
-    function tracking(msg) {console.debug(msg)}
+    const clientRect = document.body.getBoundingClientRect();
+    const bg = new Canvas(document.querySelector("#bg"), clientRect.width, clientRect.height);
+    const mid = new Canvas(document.querySelector("#mid"), clientRect.width, clientRect.height);
+    const fg = new Canvas(document.querySelector("#fg"), clientRect.width, clientRect.height);
+    const image = new Image();
 
-    
-
-    function loadImg(imgurl){
-        return new Promise(resolve => {
-            document.querySelectorAll("img").forEach(img=>{
-                if (img.src == imgurl) {
-                    tracking(`img already loaded ${imgurl}`);
-                    resolve(img);
-                    return;
-                }
-            });
-
-            const img = document.createElement("IMG");
-            document.body.appendChild(img);
-            img.style.display = "none";
-            img.src = imgurl;
-            img.addEventListener("load", ()=>{
-                tracking(`img loaded ${imgurl}`);
-                resolve(img);
-            })
-
-        })
-    }
-
-    function getX(x) { return x;}
-    function getY(y) { return y;}
-    function getWidth(w) { return w;}
-    function getHeight(h) { return h;}
-    function getRadius(r) { return r;}
-    
     (async ()=>{
-        await new Promise((resolve, reject)=>{
-            domready(()=>{resolve()});
-        })
+        
+        await lesson();
+        
+        console.log("end");
 
-        tracking("start");
-        const bg = new Canvas("#bg");
-        const mid = new Canvas("#mid");
-        const mid1 = new Canvas("#mid1");
-        const mid2 = new Canvas("#mid2");
-        const fg = new Canvas("#fg");
 
-        let step = "intro";
-        step = "journey";
-        loop: {
-            for(;;) {
-                switch(step) {
-                    case "intro":
-                        if (await intro(bg, mid, fg) == "next") {
-                            step = "journey";
-                        }
-                        break;
-                    case "journey":
-                    if (await journey(bg, mid, mid1, mid2, fg) == "next") {
-                            step = "end";
-                        }
-                        break;
-                    case "end":
-                        tracking("end");
-                        break loop;
-                }
-            }
-        }
+
+    
+
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     })();
 </script>
 

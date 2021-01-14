@@ -158,13 +158,9 @@ function journey(bg, mid, mid1, mid2, fg){
         return celestialBody?.conversations;
     }
 
-    const initializeCelestialBodyConversation = (celestialBody) => {
+    const initializeCelestialBodyConversation = (celestialBody, conversations) => {
         tracking("initializeCelestialBodyConversation start");
     //                     conversationIndex = 0;
-        
-    
-        const conversations = getConversations(celestialBody.id);
-
         //#region load conversations
         return new Promise(resolve => {
             if (conversations) {
@@ -257,8 +253,8 @@ function journey(bg, mid, mid1, mid2, fg){
             } 
             let state = states.inSolarSystem;
             let celestialBody = null;
-            // let conversations = null;
-            // let conversationIndex = 0;
+            let conversations = null;
+            let conversationIndex = 0;
 
 
 
@@ -266,20 +262,36 @@ function journey(bg, mid, mid1, mid2, fg){
                 switch(state) {
                     case states.inSolarSystem:
                         state = states.busy;
-                        celestialBody = fg.getItemAt(event.offsetX, event.offsetY);
-                        if (celestialBody) {
-                            initializeCelestialBodyConversation(celestialBody)
-                            .then(()=>{
+                        (async ()=>{
+                            celestialBody = fg.getItemAt(event.offsetX, event.offsetY);
+                            if (celestialBody) {
+                                conversations = getConversations(celestialBody.id);
+
+                                await initializeCelestialBodyConversation(celestialBody, conversations);
                                 state = states.inConversation;
-                            })
-                        }
-                        else {
-                            state = states.inSolarSystem;
-                        }
+                                conversationIndex = 0;
+                            }
+                            else {
+                                state = states.inSolarSystem;
+                            }
+                        })();
                         break;
                     case states.inConversation:
-                    //     nextConversation(event);
-                        return;
+                        state = states.busy;
+                        (async ()=>{
+                            switch(await nextConversation(conversations[++conversationIndex])) {
+                                case "ended":
+                                    mid.clear();
+                                    mid1.clear();
+                                    mid2.clear();
+                                    fg.clear();
+                                    await loadCelestialBodies();
+                                    state = states.inSolarSystem;
+                                break;
+                                default:
+                                    state = states.inConversation;
+                            }
+                        })();
                     case states.busy:
                         break;
                     default: 
