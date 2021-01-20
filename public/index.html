@@ -7,7 +7,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Solar System</title>
 
-    <style>body,html{min-width:100vw;min-height:calc(100vw * 1080px/1920px);margin:0;border:0;padding:0}body{position:relative}img{position:absolute;height:0;opacity:0}canvas{position:absolute;top:0;left:0;right:0;bottom:0;box-sizing:border-box}</style>
+    <style>body,html{min-width:100vw;min-height:calc(100vw * 1080px/1920px);margin:0;border:0;padding:0}body{position:relative}img{position:absolute;height:0;opacity:0}canvas{position:absolute;top:0;left:0;width:calc(100% - 2px);height:calc((100% * 1080px/1920px) - 2px);box-sizing:border-box}</style>
 
     <script>/*!
 * domready (c) Dustin Diaz 2014 - License MIT
@@ -30,22 +30,31 @@ return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}});</script>
 
 
 
-<script src='http://localhost/js/image.js'></script>
-<script src='http://localhost/js/canvas.js'></script>
-<script src='http://localhost/js/canvasItem.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/image.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvas.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvasItem.js'></script>
 
-<script src='http://localhost/js/canvasImage.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/canvasImage.js'></script>
 
-<script src='http://localhost/js/intro.js'></script>
-<script src='http://localhost/js/lesson.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/intro.js'></script>
+<script src='http://wa.lan/.eman/ziel/solarsystem2/public/js/lesson.js'></script>
 
 
 <script>
     const clientRect = document.body.getBoundingClientRect();
-    const bg = new Canvas(document.querySelector("#bg"), clientRect.width, clientRect.height);
+    const bg  = new Canvas(document.querySelector("#bg" ), clientRect.width, clientRect.height);
     const mid = new Canvas(document.querySelector("#mid"), clientRect.width, clientRect.height);
-    const fg = new Canvas(document.querySelector("#fg"), clientRect.width, clientRect.height);
+    const fg  = new Canvas(document.querySelector("#fg" ), clientRect.width, clientRect.height);
     const image = new Image();
+
+    
+    
+    
+    
+    
+    
+    
+    
 
     (async ()=>{
         

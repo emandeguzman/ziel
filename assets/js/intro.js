@@ -28,7 +28,7 @@ async function intro() {
         await new Promise(resolve=>{
             fg.addEventListener(
                 "click",
-                ()=>{resolve()},
+                ()=>resolve(),
                 {once: true}
             );
         })

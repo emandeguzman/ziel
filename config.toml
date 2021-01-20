@@ -1,5 +1,5 @@
 baseURL = "http://localhost/"
-#baseURL = "http://wa.lan/.eman/ziel/solarsystem2/public/"
+# baseURL = "http://wa.lan/.eman/ziel/solarsystem2/public/"
 languageCode = "en-us"
 title = "Solar System"
 

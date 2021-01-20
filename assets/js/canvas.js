@@ -2,7 +2,7 @@ class Canvas {
     constructor(canvas){ //}, width, height){
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
-        this.items = [];
+        this._items = [];
 
         // // this.width = this.canvas.parentElement.clientWidth;
         // // this.height = this.canvas.parentElement.clientHeight;
@@ -15,30 +15,55 @@ class Canvas {
         // console.log(this.canvas.width, this.canvas.height);
     }
 
+    //#region 
+    get items() {
+        return this._items;
+    }
+    //#endregion
+
+    //#region items
     addItem(item){
-        this.items.push(item);
+        this._items.push(item);
     }
 
-//     getItemAt = (x,y)=>{
-//         return this.items.find((item)=>{
-//             return item.isAt(this.ctx, x, y);
-//         });
-//     }
+    removeItem(item){
+        let start = null;
+        this._items.find((i, index) => {
+            if (item === i) {
+                start = index;
+                return true;
+            }
+            return false
+        });
 
-    removeAllItems = ()=>{
-        this.items = [];
+        this._items.splice(start, 1);
     }
 
+    removeAllItems(){
+        this._items.splice(0, this._items.length);
+    }
+
+    getItemAt(x,y){
+        return this._items.find(item => {
+            return item.isAt(this.ctx, x, y);
+        })
+    }
+    //#endregion
+
+
+
+    //#region drawing
     clear(){
-        this.ctx.clearRect(0, 0, this.width, this.height);
+        // this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.ctx.clearRect(0, 0, 1920, 1080);
     }
 
     draw(){
-        this.clear();
-        this.items.map((item)=>{
+        this._items.map((item)=>{
             item.draw(this.ctx, this.canvas);
         })
     } 
+    //#endregion
 
     addEventListener(event, handler, options){
         this.canvas.addEventListener(event, handler, options);
