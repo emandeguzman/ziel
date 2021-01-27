@@ -1,7 +1,58 @@
 {{ define "main" }}
+<style>
+    body {
+        min-width: 100vw;
+        min-height: 100vh;
+        margin: 0;
+        border: 0;
+        padding: 0;
+    }
+    #dialog {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    #dialog .box {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+        
+        padding: 2% 5%;
+        box-shadow: 0 0 50px 10px rgba(0,0,0,1);
+        
+        background: #fff;
+    }
+    #dialog .buttons {
+        padding: 20px 10px;
+        
+        display: flex;
+        justify-content: center;
+        column-gap: 50px;
+    }
+    #dialog button {
+        border-radius: 50em;
+        padding: .5em 2em;
+    }
+</style>
+
 <canvas id="bg"  width="1920" height="1080"></canvas>
 <canvas id="mid" width="1920" height="1080"></canvas>
 <canvas id="fg"  width="1920" height="1080"></canvas>
+<template id="template-dialog">
+<div id="dialog">
+    <div class="box">
+        <div id="question">Do you want to submit your answer?</div>
+        <div class="buttons">
+            <button type="button" id="btnYes">Yes</button>
+            <button type="button" id="btnNo">No</button>
+        </div>
+    </div>
+</div>
+</template>
 
 
 
@@ -15,7 +66,6 @@
 <script src='{{(resources.Get "/js/intro.js"   | resources.ExecuteAsTemplate "js/intro.js"  . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/lesson.js"  | resources.ExecuteAsTemplate "js/lesson.js" . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/quiz1.js"  | resources.ExecuteAsTemplate "js/quiz1.js" . ).Permalink}}'></script>
-
 
 <script>
     const clientRect = document.body.getBoundingClientRect();

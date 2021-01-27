@@ -204,9 +204,24 @@ async function quiz1() {
 
                 planet.ans = desc;
             } while(false);
-            
+
             startItem = undefined;
             drawLines();
+
+            //#region check if all are answered
+            const answered = items.filter((item)=>item.type=="planet" && item.ans);
+
+            if (answered.length == 8) {
+                document.body.appendChild(document.querySelector("#template-dialog").content.cloneNode(true));
+                document.querySelector("#dialog #btnYes").addEventListener("click", ()=>{
+                    document.querySelector("#dialog").remove();
+                    resolve();
+                });
+                document.querySelector("#dialog #btnNo").addEventListener("click", ()=>{
+                    document.querySelector("#dialog").remove();
+                });
+            }
+            //#endregion
         }
 
 
