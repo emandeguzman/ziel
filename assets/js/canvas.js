@@ -15,13 +15,13 @@ class Canvas {
         // console.log(this.canvas.width, this.canvas.height);
     }
 
-    //#region 
+    //#region accessors
     get items() {
         return this._items;
     }
     //#endregion
 
-    //#region items
+    //#region methods
     addItem(item){
         this._items.push(item);
     }
