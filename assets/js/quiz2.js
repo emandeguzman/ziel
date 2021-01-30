@@ -390,7 +390,7 @@ const quiz2=()=>{
                             dragged.y = target.y - (dragged.h/2);
 
                             //#region removed current draggable if any
-                            if (target.draggable) {
+                            if (target.draggable && target.draggable != dragged) {
                                 undrawDraggable(target.draggable);
                                 target.draggable.x = target.draggable.initX;
                                 target.draggable.y = target.draggable.initY;
