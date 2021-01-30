@@ -1,6 +1,6 @@
 "use strict";
 
-async function quiz1() {
+const quiz1 = async ()=>{
     const items = [
         {   name: "mercury",
             type: "planet",
@@ -181,30 +181,34 @@ async function quiz1() {
 
                 const onMouseUp = (evt)=>{
                     console.log("mouseup")
-                    if (!startItem) return;
 
-                    sX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
-                    sY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
+                    do {
+                        if (!startItem) break;;
 
-                    const endItem = itemOnPoint(sX,sY);
+                        sX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
+                        sY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
 
-                    if (endItem === undefined) return;
+                        const endItem = itemOnPoint(sX,sY);
 
-                    if (startItem.type == endItem.type) return;
+                        if (endItem === undefined) break;
 
-                    const planet = startItem.type == "planet" ? startItem : endItem;
-                    const desc = startItem.type == "desc" ? startItem : endItem;
+                        if (startItem.type == endItem.type) break;
 
-                    //#region remove redundant point to desc
-                    items.map(item=>{
-                        if (item.ans == desc) item.ans = undefined;
-                    })
-                    //#endregion
+                        const planet = startItem.type == "planet" ? startItem : endItem;
+                        const desc = startItem.type == "desc" ? startItem : endItem;
 
-                    planet.ans = desc;
+                        //#region remove redundant point to desc
+                        items.map(item=>{
+                            if (item.ans == desc) item.ans = undefined;
+                        })
+                        //#endregion
+
+                        planet.ans = desc;
+
+                        drawLines();
+                    } while(false);
 
                     startItem = undefined;
-                    drawLines();
 
                     //#region check if all are answered
                     const answered = items.filter((item)=>item.type=="planet" && item.ans);
