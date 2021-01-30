@@ -90,6 +90,14 @@ const quiz2=()=>{
             y: 575,
             width: 646,
             height: 137
+        },
+        {
+            name: "base",
+            type: "rect",
+            x: 43,
+            y: 762,
+            width: 1832,
+            height: 293
         }
     ];
 
@@ -298,10 +306,8 @@ const quiz2=()=>{
         })
     }
 
+    //#region MAIN
     return new Promise(resolve=>{
-        /*
-        * MAIN STARTS HERE
-        */
         (async()=>{
             await clearCanvas();
             await drawBg();
@@ -364,10 +370,12 @@ const quiz2=()=>{
                 });
 
                 fg.addEventListener("mouseup", (e)=>{
-                    if (!dragging) return;
-
                     const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
                     const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
+
+                    console.log(`mouse up ${x}, ${y}`);
+
+                    if (!dragging) return;
 
                     const dragged = draggables.find(d=>d.name == dragging.name)
                     dragging = undefined;
@@ -398,6 +406,7 @@ const quiz2=()=>{
                             }
                             //#endregion
 
+                            targets.map(t=>{if (t.draggable == dragged) t.draggable = undefined})
                             target.draggable = dragged;
                         }
                         //#endregion
@@ -411,15 +420,7 @@ const quiz2=()=>{
 
             })();
 
-
-
-            // (()=>{
-            //     const item = mid.items.find(item=>item.id == "uranus")
-            //     mid.removeItem(item);
-            //     mid.clear();
-            //     mid.draw();
-            // })();
-
-       })();
+        })();
     })
+    //#endregion
 }
