@@ -68,4 +68,7 @@ class Canvas {
     addEventListener(event, handler, options){
         this.canvas.addEventListener(event, handler, options);
     }
+    removeEventListener(event, handler, options){
+        this.canvas.removeEventListener(event, handler, options);
+    }
 }

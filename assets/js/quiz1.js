@@ -1,35 +1,6 @@
 "use strict";
 
 async function quiz1() {
-
-    /*
-     * MAIN STARTS HERE
-     */
-    bg.removeAllItems();
-    mid.removeAllItems();
-    fg.removeAllItems();
-
-    bg.clear();
-    mid.clear();
-    fg.clear();
-
-    bg.addItem(new CanvasImage(await image.load('{{(resources.Get "/img/quiz1/TRANSITION LECTURE TO GAME.png").Permalink}}'), 0, 0, 1920, 1080));
-    bg.draw();
-    await new Promise(resolve=>{
-        fg.addEventListener("click", ()=>resolve());
-    })
-
-    bg.removeAllItems();
-    bg.addItem(new CanvasImage(await image.load('{{(resources.Get "/img/quiz1/front wanderers (2).jpg").Permalink}}'), 0, 0, 1920, 1080));
-    bg.draw();
-    await new Promise(resolve=>{
-        fg.addEventListener("click", ()=>resolve());
-    })
-
-    bg.removeAllItems();
-    bg.addItem(new CanvasImage(await image.load('{{(resources.Get "/img/quiz1/1- GAME.jpg").Permalink}}'), 0, 0, 1920, 1080));
-    bg.draw();
-
     const items = [
         {   name: "mercury",
             type: "planet",
@@ -122,111 +93,185 @@ async function quiz1() {
 
     ];
 
-    const itemOnPoint = (x,y) => {
-        return items.find(item=>{
-            return fg.ctx.isPointInPath(new Path2D(item.path), x, y);
-        })
-    }
-
-    const drawLines = () => {
+    const clearCanvas = ()=>{
+        bg.removeAllItems();
+        mid.removeAllItems();
+        fg.removeAllItems();
+    
+        bg.clear();
         mid.clear();
-        items.map(item=>{
-            // if (item.type !== "planet") return;
-            if (!item.ans) return;
-            mid.ctx.save();
-            mid.ctx.beginPath();
-            mid.ctx.moveTo(item.point.x, item.point.y);
-            mid.ctx.lineTo(item.ans.point.x, item.ans.point.y);
-            mid.ctx.strokeStyle = strokeStyle;
-            mid.ctx.lineWidth = lineWidth;
-            mid.ctx.stroke(); 
-            mid.ctx.restore();
+        fg.clear();
+    }
+
+    const intro = async ()=>{
+        bg.addItem(new CanvasImage(await image.load('{{(resources.Get "/img/quiz1/TRANSITION LECTURE TO GAME.png").Permalink}}'), 0, 0, 1920, 1080));
+        bg.draw();
+        await new Promise(resolve=>{
+            fg.addEventListener("click", ()=>resolve());
+        })
+    
+        bg.removeAllItems();
+        bg.addItem(new CanvasImage(await image.load('{{(resources.Get "/img/quiz1/front wanderers (2).jpg").Permalink}}'), 0, 0, 1920, 1080));
+        bg.draw();
+        await new Promise(resolve=>{
+            fg.addEventListener("click", ()=>resolve());
         })
     }
 
-    const strokeStyle = "#FFFFFF";
-    const lineWidth = 10;
+    const getAnswers = ()=>{
+        return new Promise(resolve=>{
+            (async()=>{
+                const itemOnPoint = (x,y) => {
+                    return items.find(item=>{
+                        return fg.ctx.isPointInPath(new Path2D(item.path), x, y);
+                    })
+                }
+            
+                const drawLines = () => {
+                    mid.clear();
+                    items.map(item=>{
+                        // if (item.type !== "planet") return;
+                        if (!item.ans) return;
+                        mid.ctx.save();
+                        mid.ctx.beginPath();
+                        mid.ctx.moveTo(item.point.x, item.point.y);
+                        mid.ctx.lineTo(item.ans.point.x, item.ans.point.y);
+                        mid.ctx.strokeStyle = strokeStyle;
+                        mid.ctx.lineWidth = lineWidth;
+                        mid.ctx.stroke(); 
+                        mid.ctx.restore();
+                    })
+                }
 
-    //#region interact with user click
-    await new Promise(resolve=>{
-        let startItem = null;
-        let sX, sY;
+                const removeEventListeners = ()=>{
+                    fg.removeEventListener("mousemove", onMouseMove);
+                    fg.removeEventListener("mouseup", onMouseUp);
+                    fg.removeEventListener("mousedown", onMouseDown);            
+                }
 
-        const onMouseDown = (evt)=>{
-            sX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
-            sY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
-            // console.log("mousedown", evt.offsetX, evt.offsetY, sX, sY);
+                const onMouseDown = (evt)=>{
+                    console.log("mouse down")
+                    sX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
+                    sY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
+                    // console.log("mousedown", evt.offsetX, evt.offsetY, sX, sY);
 
-            startItem = itemOnPoint(sX,sY);
-            console.log(`startItem ${startItem?.name}`);
-        }
+                    startItem = itemOnPoint(sX,sY);
+                    console.log(`startItem ${startItem?.name}`);
+                }
 
-        const onMouseMove = (evt)=>{
-            if (!startItem) return;
+                const onMouseMove = (evt)=>{
+                    console.log("mouse move")
+                    if (!startItem) return;
 
-            // console.log("mousemove", evt.offsetX, evt.offsetY)
+                    // console.log("mousemove", evt.offsetX, evt.offsetY)
 
-            const eX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
-            const eY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
+                    const eX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
+                    const eY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
 
-            drawLines();
-            mid.ctx.save()
-            mid.ctx.beginPath();
-            mid.ctx.moveTo(startItem.point.x, startItem.point.y);
-            mid.ctx.lineTo(eX, eY);
-            mid.ctx.strokeStyle = strokeStyle;
-            mid.ctx.lineWidth = lineWidth;
-            mid.ctx.stroke();
-            mid.ctx.restore();
-        }
+                    drawLines();
+                    mid.ctx.save()
+                    mid.ctx.beginPath();
+                    mid.ctx.moveTo(startItem.point.x, startItem.point.y);
+                    mid.ctx.lineTo(eX, eY);
+                    mid.ctx.strokeStyle = strokeStyle;
+                    mid.ctx.lineWidth = lineWidth;
+                    mid.ctx.stroke();
+                    mid.ctx.restore();
+                }
 
-        const onMouseUp = (evt)=>{
-            do {
-                if (!startItem) break;
+                const onMouseUp = (evt)=>{
+                    console.log("mouseup")
+                    if (!startItem) return;
 
-                sX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
-                sY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
+                    sX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
+                    sY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
 
-                const endItem = itemOnPoint(sX,sY);
+                    const endItem = itemOnPoint(sX,sY);
 
-                if (endItem === undefined) break;
+                    if (endItem === undefined) return;
 
-                if (startItem.type == endItem.type) break;
+                    if (startItem.type == endItem.type) return;
 
-                const planet = startItem.type == "planet" ? startItem : endItem;
-                const desc = startItem.type == "desc" ? startItem : endItem;
+                    const planet = startItem.type == "planet" ? startItem : endItem;
+                    const desc = startItem.type == "desc" ? startItem : endItem;
 
-                //#region remove redundant point to desc
-                items.map(item=>{
-                    if (item.ans == desc) item.ans = undefined;
-                })
-                //#endregion
+                    //#region remove redundant point to desc
+                    items.map(item=>{
+                        if (item.ans == desc) item.ans = undefined;
+                    })
+                    //#endregion
 
-                planet.ans = desc;
-            } while(false);
+                    planet.ans = desc;
 
-            startItem = undefined;
-            drawLines();
+                    startItem = undefined;
+                    drawLines();
 
-            //#region check if all are answered
-            const answered = items.filter((item)=>item.type=="planet" && item.ans);
+                    //#region check if all are answered
+                    const answered = items.filter((item)=>item.type=="planet" && item.ans);
+                    if (answered.length == 8) {
+                        removeEventListeners();
+                        resolve();
+                    }
+                    //#endregion
+                }
 
-            if (answered.length == 8) {
-                document.body.appendChild(document.querySelector("#template-dialog").content.cloneNode(true));
-                document.querySelector("#dialog #btnYes").addEventListener("click", ()=>{
-                    document.querySelector("#dialog").remove();
-                    resolve();
-                });
-                document.querySelector("#dialog #btnNo").addEventListener("click", ()=>{
-                    document.querySelector("#dialog").remove();
-                });
-            }
-            //#endregion
-        }
+                const addEventListeners = ()=>{
+                    fg.addEventListener("mousemove", onMouseMove);
+                    fg.addEventListener("mouseup", onMouseUp);
+                    fg.addEventListener("mousedown", onMouseDown);            
+                }
 
 
-        fg.addEventListener("mousemove", onMouseMove);
-        fg.addEventListener("mouseup", onMouseUp);
-        fg.addEventListener("mousedown", onMouseDown);
-    })
+                bg.removeAllItems();
+                bg.addItem(
+                    new CanvasImage(
+                        await image.load('{{(resources.Get "/img/quiz1/1- GAME.jpg").Permalink}}'),
+                        0,
+                        0,
+                        1920,
+                        1080
+                    )
+                );
+                bg.draw();
+
+                const strokeStyle = "#FFFFFF";
+                const lineWidth = 10;
+
+                let startItem = null;
+                let sX, sY;
+
+                addEventListeners();
+
+
+            })();
+        })
+    }
+
+    const submitAnswers = ()=>{
+        return new Promise(resolve=>{
+            console.log("append dialog")
+            document.body.appendChild(document.querySelector("#template-dialog").content.cloneNode(true));
+            const dialog = document.querySelector("#dialog");
+            console.log(dialog);
+            dialog.querySelector("#btnYes").addEventListener("click", ()=>{
+                dialog.remove();
+                resolve(true);
+            });
+            dialog.querySelector("#btnNo").addEventListener("click", ()=>{
+                dialog.remove();
+                resolve(false);
+            });
+        })
+    }
+
+    /*
+     * MAIN STARTS HERE
+     */
+    clearCanvas();
+    await intro();
+    do {
+        await getAnswers();
+        if (await submitAnswers()) break;
+    } while(true);
 }
+

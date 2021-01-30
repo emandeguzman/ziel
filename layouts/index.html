@@ -43,15 +43,15 @@
 <canvas id="mid" width="1920" height="1080"></canvas>
 <canvas id="fg"  width="1920" height="1080"></canvas>
 <template id="template-dialog">
-<div id="dialog">
-    <div class="box">
-        <div id="question">Do you want to submit your answer?</div>
-        <div class="buttons">
-            <button type="button" id="btnYes">Yes</button>
-            <button type="button" id="btnNo">No</button>
+    <div id="dialog">
+        <div class="box">
+            <div id="question">Do you want to submit your answer?</div>
+            <div class="buttons">
+                <button type="button" id="btnYes">Yes</button>
+                <button type="button" id="btnNo">No</button>
+            </div>
         </div>
     </div>
-</div>
 </template>
 
 
@@ -65,7 +65,8 @@
 <!-- <script src='{ {(resources.Get "/js/celestialBody.js").Permalink}}'></script> -->
 <script src='{{(resources.Get "/js/intro.js"   | resources.ExecuteAsTemplate "js/intro.js"  . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/lesson.js"  | resources.ExecuteAsTemplate "js/lesson.js" . ).Permalink}}'></script>
-<script src='{{(resources.Get "/js/quiz1.js"  | resources.ExecuteAsTemplate "js/quiz1.js" . ).Permalink}}'></script>
+<script src='{{(resources.Get "/js/quiz1.js"   | resources.ExecuteAsTemplate "js/quiz1.js"  . ).Permalink}}'></script>
+<script src='{{(resources.Get "/js/quiz2.js"   | resources.ExecuteAsTemplate "js/quiz2.js"  . ).Permalink}}'></script>
 
 <script>
     const clientRect = document.body.getBoundingClientRect();
@@ -77,7 +78,8 @@
     (async ()=>{
         // await intro();
         // await lesson();
-        await quiz1();
+        // await quiz1();
+        await quiz2();
         console.log("end");
 
     })();
