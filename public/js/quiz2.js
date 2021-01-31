@@ -104,7 +104,7 @@ const quiz2 = async ()=>{
     const draggables = [
         {
             name: 'uranus',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/journey/uranus-cropped.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/journey/uranus-cropped.png',
             x: 100,
             y: 890,
             initX: 100,
@@ -117,7 +117,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'mars',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/journey/mars-cropped.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/journey/mars-cropped.png',
             x: 270,
             y: 890,
             initX: 270,
@@ -130,7 +130,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'saturn',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/journey/saturn-cropped.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/journey/saturn-cropped.png',
             x: 430,
             y: 890,
             initX: 430,
@@ -143,7 +143,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'neptune',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/journey/neptune-cropped.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/journey/neptune-cropped.png',
             x: 710,
             y: 890,
             initX: 710,
@@ -156,7 +156,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'mercury',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/journey/mercury-cropped.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/journey/mercury-cropped.png',
             x: 880,
             y: 890,
             initX: 880,
@@ -169,7 +169,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'jupiter',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/journey/jupiter-cropped.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/journey/jupiter-cropped.png',
             x: 1045,
             y: 890,
             initX: 1045,
@@ -182,7 +182,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'venus',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/journey/venus-cropped.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/journey/venus-cropped.png',
             x: 1210,
             y: 890,
             initX: 1210,
@@ -195,7 +195,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'earth',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/journey/earth.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/journey/earth.png',
             x: 1380,
             y: 890,
             initX: 1380,
@@ -208,7 +208,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'jovian',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/quiz2/jovian_planets.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/quiz2/jovian_planets.png',
             x: 1611,
             y: 940,
             initX: 1611,
@@ -221,7 +221,7 @@ const quiz2 = async ()=>{
         },
         {
             name: 'terrestial',
-            url: 'http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/quiz2/terrestial_planets.png',
+            url: 'https://emandeguzman.github.io/ziel/public/img/quiz2/terrestial_planets.png',
             x: 1545,
             y: 858,
             initX: 1545,
@@ -247,7 +247,7 @@ const quiz2 = async ()=>{
 
     const drawBg=async()=>{
         const canvas = bg;
-        canvas.addItem(new CanvasImage(await image.load('http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/quiz2/bg.jpg'), 0, 0, 1920, 1080));
+        canvas.addItem(new CanvasImage(await image.load('https://emandeguzman.github.io/ziel/public/img/quiz2/bg.jpg'), 0, 0, 1920, 1080));
         canvas.draw();
     }
 

@@ -1,7 +1,7 @@
 # baseURL = "http://localhost/"
 # baseURL = "http://wa.lan/.eman/ziel/solarsystem2/public/"
-# baseURL = "http://wa.lan/.eman/ziel/solarsystem2/isableFastRender/"
-baseURL = "http://wa.lan/.eman/emandeguzman.github.io/ziel/public/"
+# baseURL = "http://wa.lan/.eman/emandeguzman.github.io/ziel/public/"
+baseURL = "https://emandeguzman.github.io/ziel/public/"
 languageCode = "en-us"
 title = "Solar System"
 
