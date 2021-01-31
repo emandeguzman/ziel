@@ -76,7 +76,7 @@ const quiz2 = async ()=>{
             end: 2 * Math.PI
         },
         {
-            name: "jovian",
+            name: "terrestial",
             type: "rect",
             x: 397,
             y: 576,
@@ -84,7 +84,7 @@ const quiz2 = async ()=>{
             height: 137
         },
         {
-            name: "terrestial",
+            name: "jovian",
             type: "rect",
             x: 1171,
             y: 575,
