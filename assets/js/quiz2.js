@@ -209,28 +209,28 @@ const quiz2=()=>{
         {
             name: 'jovian',
             url: '{{(resources.Get "img/quiz2/jovian_planets.png").Permalink}}',
-            x: 1520,
-            y: 890,
-            initX: 1520,
-            initY: 890,
-            path: 'M 126.00,0.42 C 138.61,-1.11 161.88,2.91 174.00,7.00 188.67,11.95 200.82,18.93 213.00,28.42 225.01,37.79 230.61,44.47 239.00,57.00 274.15,109.50 268.21,181.47 223.91,226.96 216.53,234.54 205.14,242.96 196.00,248.40 182.48,256.44 158.77,264.92 143.00,265.24 143.00,265.24 130.00,265.24 130.00,265.24 130.00,265.24 115.00,264.71 115.00,264.71 88.60,261.28 63.41,248.96 44.09,230.72 -8.95,180.61 -9.23,90.41 42.09,39.09 56.84,24.34 78.86,11.14 99.00,5.43 107.86,2.92 116.93,1.72 126.00,0.42 Z',
-            scaleX: 120 / 266,
-            scaleY: 120 / 266,
-            w: 120,
-            h: 120,
+            x: 1611,
+            y: 940,
+            initX: 1611,
+            initY: 940,
+            path: 'M 0.00,0.00 C 0.00,0.00 406.00,0.00 406.00,0.00 406.00,0.00 406.00,76.00 406.00,76.00 406.00,76.00 0.00,76.00 0.00,76.00 0.00,76.00 0.00,0.00 0.00,0.00 Z',
+            scaleX: 182 / 406,
+            scaleY: 34 / 76,
+            w: 182,
+            h: 34,
         },
         {
             name: 'terrestial',
             url: '{{(resources.Get "img/quiz2/terrestial_planets.png").Permalink}}',
-            x: 1520,
-            y: 790,
-            initX: 1520,
-            initY: 790,
-            path: 'M 126.00,0.42 C 138.61,-1.11 161.88,2.91 174.00,7.00 188.67,11.95 200.82,18.93 213.00,28.42 225.01,37.79 230.61,44.47 239.00,57.00 274.15,109.50 268.21,181.47 223.91,226.96 216.53,234.54 205.14,242.96 196.00,248.40 182.48,256.44 158.77,264.92 143.00,265.24 143.00,265.24 130.00,265.24 130.00,265.24 130.00,265.24 115.00,264.71 115.00,264.71 88.60,261.28 63.41,248.96 44.09,230.72 -8.95,180.61 -9.23,90.41 42.09,39.09 56.84,24.34 78.86,11.14 99.00,5.43 107.86,2.92 116.93,1.72 126.00,0.42 Z',
-            scaleX: 120 / 266,
-            scaleY: 120 / 266,
-            w: 120,
-            h: 120,
+            x: 1545,
+            y: 858,
+            initX: 1545,
+            initY: 858,
+            path: 'M 0.00,0.00 C 0.00,0.00 548.00,0.00 548.00,0.00 548.00,0.00 548.00,84.00 548.00,84.00 548.00,84.00 0.00,84.00 0.00,84.00 0.00,84.00 0.00,0.00 0.00,0.00 Z',
+            scaleX: 247 / 548,
+            scaleY: 38 / 84,
+            w: 247,
+            h: 38,
         },
     ];
 
@@ -366,6 +366,8 @@ const quiz2=()=>{
                     });
                     //#endregion
 
+                    console.log(dragging)
+
                     if (dragging) undrawDraggable(dragging);
                 });
 
@@ -394,20 +396,38 @@ const quiz2=()=>{
 
                         //#region is valid target -> move dragged item to target
                         if (target) {
-                            dragged.x = target.x - (dragged.w/2);
-                            dragged.y = target.y - (dragged.h/2);
-
-                            //#region removed current draggable if any
-                            if (target.draggable && target.draggable != dragged) {
-                                undrawDraggable(target.draggable);
-                                target.draggable.x = target.draggable.initX;
-                                target.draggable.y = target.draggable.initY;
-                                drawDraggable(target.draggable);
+                            //#region position dragged item in its new target location
+                            if (target.name == "base") {
+                                dragged.x = dragged.initX;
+                                dragged.y = dragged.initY;
+                            }
+                            else if (target.type == "arc") {
+                                dragged.x = target.x - (dragged.w/2);
+                                dragged.y = target.y - (dragged.h/2);
+                            }
+                            else {  //target type == "rect"
+                                console.log(`x: ${target.x}, y: ${target.y}, w: ${target.w}, h: ${target.h}`)
+                                dragged.x = target.x + (target.width/2) - (dragged.w/2);
+                                dragged.y = target.y + (target.height/2) - (dragged.h/2);
                             }
                             //#endregion
 
+                            //#region removed current draggable of target, if any
+                            if (target.draggable && target.draggable != dragged) {
+                                undrawDraggable(target.draggable);
+
+                                //#region move target's draggable to its original location
+                                target.draggable.x = target.draggable.initX;
+                                target.draggable.y = target.draggable.initY;
+                                drawDraggable(target.draggable);
+                                //#endregion
+                            }
+                            //#endregion
+
+                            //#region remove dragged as draggable of its previous target container
                             targets.map(t=>{if (t.draggable == dragged) t.draggable = undefined})
                             target.draggable = dragged;
+                            //#endregion
                         }
                         //#endregion
 
