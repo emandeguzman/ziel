@@ -1,6 +1,6 @@
 "use strict";
 
-const quiz2=()=>{
+const quiz2 = async ()=>{
 
     const targets = [
         {
@@ -306,166 +306,177 @@ const quiz2=()=>{
         })
     }
 
-    //#region MAIN
-    return new Promise(resolve=>{
-        (async()=>{
-            await clearCanvas();
-            await drawBg();
+    const getAnswers = ()=>{
+        return new Promise(resolve=>{
+            let dragging;
 
-            await drawTargets();
-            await drawDraggables();
+            const onMouseDown = (e)=>{
+                const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
+                const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
 
+                //#region get clicked item
+                const ctx = fg.ctx;
+                dragging = draggables.find(t=>{
+                    let retval = false;
 
-            // fg.addEventListener("mousedown", (e)=>{
-            //     const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
-            //     const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
+                    ctx.save();
+                    ctx.translate(t.x, t.y);
+                    const p = new Path2D(t.path);
+                    ctx.scale(t.scaleX, t.scaleY);
+                    retval = ctx.isPointInPath(p,x,y);
+                    ctx.restore();
 
-            //     const ctx = fg.ctx;
+                    return retval;
+                });
+                //#endregion
 
-            //     targets.map(t=>{
-            //         ctx.beginPath();
-            //         if (t.type == "arc") ctx.arc(t.x, t.y, t.r, t.start, t.end);
-            //         else if (t.type == "rect") ctx.rect(t.x, t.y, t.width, t.height);
+                // console.log(dragging)
 
-            //         if (ctx.isPointInPath(x,y)) console.log(`Point is in target ${t.name}`);
-            //     })
+                if (dragging) undrawDraggable(dragging);
+            }
 
-            //     draggables.map(t=>{
-            //         ctx.save();
-        
-            //         ctx.translate(t.x, t.y);
-        
-            //         const p = new Path2D(t.path);
-            //         ctx.scale(t.scaleX, t.scaleY);
-        
-            //         if (ctx.isPointInPath(p,x,y)) console.log(`Point is in ${t.name}`);
-            //         ctx.restore();
-            //     })
+            const onMouseMove = (e)=>{
+                if (!dragging) return;
 
-            // });
+                const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
+                const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
 
-            await (()=>{
-                let dragging;
+                fg.clear();
+                fg.removeAllItems();
+                const canvas = fg;
+                // console.log(`dragging.url = ${dragging.url}`)
+                return image.load(dragging.url)
+                .then(img=>{
+                    const canvasItem = new CanvasImage(img, x - (dragging.w/2), y - (dragging.h/2), null, null, dragging.name, dragging.scaleX, dragging.scaleY, dragging.path);
+                    canvas.addItem(canvasItem);
+                    canvas.draw();
+                })
+                .catch(err => {
+                    console.error(err)
+                })
+            }
 
-                fg.addEventListener("mousedown", (e)=>{
-                    const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
-                    const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
+            const onMouseUp = (e)=>{
+                fg.clear();
+                fg.removeAllItems();
 
-                    //#region get clicked item
-                    const ctx = fg.ctx;
-                    dragging = draggables.find(t=>{
-                        let retval = false;
+                const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
+                const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
 
-                        ctx.save();
-                        ctx.translate(t.x, t.y);
-                        const p = new Path2D(t.path);
-                        ctx.scale(t.scaleX, t.scaleY);
-                        retval = ctx.isPointInPath(p,x,y);
-                        ctx.restore();
+                // console.log(`mouse up ${x}, ${y}`);
 
-                        return retval;
-                    });
+                if (!dragging) return;
+
+                const dragged = draggables.find(d=>d.name == dragging.name)
+                dragging = undefined;
+
+                (async ()=>{
+                    //#region get target of draggable
+                    const target = targets.find(t=>{
+                        const ctx = fg.ctx;
+                        ctx.beginPath();
+                        if (t.type == "arc") ctx.arc(t.x, t.y, t.r, t.start, t.end);
+                        else if (t.type == "rect") ctx.rect(t.x, t.y, t.width, t.height);
+
+                        return ctx.isPointInPath(x,y);
+                    })
                     //#endregion
 
-                    // console.log(dragging)
-
-                    if (dragging) undrawDraggable(dragging);
-                });
-
-                fg.addEventListener("mousemove", (e)=>{
-                    if (!dragging) return;
-
-                    const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
-                    const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
-
-                    fg.clear();
-                    fg.removeAllItems();
-                    const canvas = fg;
-                    // console.log(`dragging.url = ${dragging.url}`)
-                    return image.load(dragging.url)
-                    .then(img=>{
-                        const canvasItem = new CanvasImage(img, x - (dragging.w/2), y - (dragging.h/2), null, null, dragging.name, dragging.scaleX, dragging.scaleY, dragging.path);
-                        canvas.addItem(canvasItem);
-                        canvas.draw();
-                    })
-                    .catch(err => {
-                        console.error(err)
-                    })
-                })
-
-                fg.addEventListener("mouseup", (e)=>{
-                    fg.clear();
-                    fg.removeAllItems();
-
-                    const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
-                    const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
-
-                    console.log(`mouse up ${x}, ${y}`);
-
-                    if (!dragging) return;
-
-                    const dragged = draggables.find(d=>d.name == dragging.name)
-                    dragging = undefined;
-
-                    (async ()=>{
-                        //#region get target of draggable
-                        const target = targets.find(t=>{
-                            const ctx = fg.ctx;
-                            ctx.beginPath();
-                            if (t.type == "arc") ctx.arc(t.x, t.y, t.r, t.start, t.end);
-                            else if (t.type == "rect") ctx.rect(t.x, t.y, t.width, t.height);
-
-                            return ctx.isPointInPath(x,y);
-                        })
+                    //#region is valid target -> move dragged item to target
+                    if (target) {
+                        //#region position dragged item in its new target location
+                        if (target.name == "base") {
+                            dragged.x = dragged.initX;
+                            dragged.y = dragged.initY;
+                        }
+                        else if (target.type == "arc") {
+                            dragged.x = target.x - (dragged.w/2);
+                            dragged.y = target.y - (dragged.h/2);
+                        }
+                        else {  //target type == "rect"
+                            // console.log(`x: ${target.x}, y: ${target.y}, w: ${target.w}, h: ${target.h}`)
+                            dragged.x = target.x + (target.width/2) - (dragged.w/2);
+                            dragged.y = target.y + (target.height/2) - (dragged.h/2);
+                        }
                         //#endregion
 
-                        //#region is valid target -> move dragged item to target
-                        if (target) {
-                            //#region position dragged item in its new target location
-                            if (target.name == "base") {
-                                dragged.x = dragged.initX;
-                                dragged.y = dragged.initY;
-                            }
-                            else if (target.type == "arc") {
-                                dragged.x = target.x - (dragged.w/2);
-                                dragged.y = target.y - (dragged.h/2);
-                            }
-                            else {  //target type == "rect"
-                                console.log(`x: ${target.x}, y: ${target.y}, w: ${target.w}, h: ${target.h}`)
-                                dragged.x = target.x + (target.width/2) - (dragged.w/2);
-                                dragged.y = target.y + (target.height/2) - (dragged.h/2);
-                            }
-                            //#endregion
+                        //#region removed current draggable of target, if any
+                        if (target.draggable && target.draggable != dragged) {
+                            undrawDraggable(target.draggable);
 
-                            //#region removed current draggable of target, if any
-                            if (target.draggable && target.draggable != dragged) {
-                                undrawDraggable(target.draggable);
-
-                                //#region move target's draggable to its original location
-                                target.draggable.x = target.draggable.initX;
-                                target.draggable.y = target.draggable.initY;
-                                drawDraggable(target.draggable);
-                                //#endregion
-                            }
-                            //#endregion
-
-                            //#region remove dragged as draggable of its previous target container
-                            targets.map(t=>{if (t.draggable == dragged) t.draggable = undefined})
-                            target.draggable = dragged;
+                            //#region move target's draggable to its original location
+                            target.draggable.x = target.draggable.initX;
+                            target.draggable.y = target.draggable.initY;
+                            drawDraggable(target.draggable);
                             //#endregion
                         }
                         //#endregion
 
-                        drawDraggable(dragged);
+                        //#region remove dragged as draggable of its previous target container
+                        targets.map(t=>{if (t.draggable == dragged) t.draggable = undefined})
+                        target.draggable = dragged;
+                        //#endregion
 
-                    })();
+                        //#region exit when all targets are filled
+                        await Promise.all(targets.map(t=>{
+                            return new Promise((resolve, reject)=>{
+                                if (t.name == "base") resolve();
+                                else if (t.draggable) resolve();
+                                else reject();
+                            })
+                        }))
+                        .then(()=>{
+                            fg.removeEventListener("mousedown", onMouseDown);
+                            fg.removeEventListener("mousemove", onMouseMove);
+                            fg.removeEventListener("mouseup", onMouseUp);
+                            resolve();
+                        })
+                        .catch(()=>{
+                            // not yet finished answering -> just continue
+                        })
+                        //#endregion
+                    }
+                    //#endregion
 
-                })
+                    drawDraggable(dragged);
+                })();
 
+            }
 
-            })();
+            fg.addEventListener("mousedown", onMouseDown);
+            fg.addEventListener("mousemove", onMouseMove);
+            fg.addEventListener("mouseup", onMouseUp);
+        });
+    }
 
-        })();
-    })
+    const submitAnswers = ()=>{
+        return new Promise(resolve=>{
+            console.log("append dialog")
+            document.body.appendChild(document.querySelector("#template-dialog").content.cloneNode(true));
+            const dialog = document.querySelector("#dialog");
+            console.log(dialog);
+            dialog.querySelector("#btnYes").addEventListener("click", ()=>{
+                dialog.remove();
+                resolve(true);
+            });
+            dialog.querySelector("#btnNo").addEventListener("click", ()=>{
+                dialog.remove();
+                resolve(false);
+            });
+        })
+    }
+
+    //#region MAIN
+    await clearCanvas();
+    await drawBg();
+
+    // await drawTargets();
+    await drawDraggables();
+
+    do {
+        await getAnswers();
+        if (await submitAnswers()) break;
+    } while(true);
+    console.log("quiz2 end")
     //#endregion
 }
