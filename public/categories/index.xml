@@ -2,12 +2,12 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Solar System</title>
-    <link>http://wa.lan/.eman/ziel/solarsystem2/public/categories/</link>
+    <link>http://wa.lan/.eman/emandeguzman.github.io/ziel/public/categories/</link>
     <description>Recent content in Categories on Solar System</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
-	<atom:link href="http://wa.lan/.eman/ziel/solarsystem2/public/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://wa.lan/.eman/emandeguzman.github.io/ziel/public/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>

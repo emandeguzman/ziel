@@ -15,13 +15,13 @@ class Canvas {
         // console.log(this.canvas.width, this.canvas.height);
     }
 
-    //#region 
+    //#region accessors
     get items() {
         return this._items;
     }
     //#endregion
 
-    //#region items
+    //#region methods
     addItem(item){
         this._items.push(item);
     }
@@ -67,5 +67,8 @@ class Canvas {
 
     addEventListener(event, handler, options){
         this.canvas.addEventListener(event, handler, options);
+    }
+    removeEventListener(event, handler, options){
+        this.canvas.removeEventListener(event, handler, options);
     }
 }
