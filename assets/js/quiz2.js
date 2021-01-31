@@ -315,6 +315,7 @@ const quiz2=()=>{
             await drawTargets();
             await drawDraggables();
 
+
             // fg.addEventListener("mousedown", (e)=>{
             //     const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
             //     const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
@@ -366,12 +367,36 @@ const quiz2=()=>{
                     });
                     //#endregion
 
-                    console.log(dragging)
+                    // console.log(dragging)
 
                     if (dragging) undrawDraggable(dragging);
                 });
 
+                fg.addEventListener("mousemove", (e)=>{
+                    if (!dragging) return;
+
+                    const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
+                    const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
+
+                    fg.clear();
+                    fg.removeAllItems();
+                    const canvas = fg;
+                    // console.log(`dragging.url = ${dragging.url}`)
+                    return image.load(dragging.url)
+                    .then(img=>{
+                        const canvasItem = new CanvasImage(img, x - (dragging.w/2), y - (dragging.h/2), null, null, dragging.name, dragging.scaleX, dragging.scaleY, dragging.path);
+                        canvas.addItem(canvasItem);
+                        canvas.draw();
+                    })
+                    .catch(err => {
+                        console.error(err)
+                    })
+                })
+
                 fg.addEventListener("mouseup", (e)=>{
+                    fg.clear();
+                    fg.removeAllItems();
+
                     const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
                     const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
 
