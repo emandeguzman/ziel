@@ -451,10 +451,10 @@ const quiz2 = async ()=>{
 
     const submitAnswers = ()=>{
         return new Promise(resolve=>{
-            console.log("append dialog")
+            // console.log("append dialog")
             document.body.appendChild(document.querySelector("#template-dialog").content.cloneNode(true));
             const dialog = document.querySelector("#dialog");
-            console.log(dialog);
+            // console.log(dialog);
             dialog.querySelector("#btnYes").addEventListener("click", ()=>{
                 dialog.remove();
                 resolve(true);
@@ -477,6 +477,6 @@ const quiz2 = async ()=>{
         await getAnswers();
         if (await submitAnswers()) break;
     } while(true);
-    console.log("quiz2 end")
+    // console.log("quiz2 end")
     //#endregion
 }
