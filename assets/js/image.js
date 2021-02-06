@@ -27,7 +27,7 @@ class Image {
                 img.addEventListener(
                     "load", 
                     ()=>{
-                        // console.log('LOADED ', imgurl, img.width);
+                        console.log('LOADED ', imgurl, img.width);
                         img.setAttribute("data-status", "loaded");
                         resolve(img);
                     },

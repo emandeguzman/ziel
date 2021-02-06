@@ -76,6 +76,80 @@
     const image = new Image();
 
     (async ()=>{
+        // (async ()=>{
+        // (async  ()=>{
+            list =  [
+                '{{(resources.Get "/img/lecture/1- COVER.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/2- Preface.jpg").Permalink}}',
+                '{{(resources.Get "/img/lecture/3- TRANSITION.jpg").Permalink}}',
+                '{{(resources.Get "/img/lecture/4- SOLAR SYSTEM 6.jpg").Permalink}}',
+                '{{(resources.Get "/img/lecture/5-SS 1.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/5-SS 2.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/5-SS 3.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/6-PLANETS .jpg").Permalink}}',
+                '{{(resources.Get "/img/lecture/7- 3 CRITERIA.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/8- PLUTO.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/9- Terrestrial Planets 1.jpg").Permalink}}',
+                '{{(resources.Get "/img/lecture/9- Terrestrial Planets 2.jpg").Permalink}}',
+                '{{(resources.Get "/img/lecture/10-ASTEROID BELT 1.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/11-Jovian Planets 1.jpg").Permalink}}',
+                '{{(resources.Get "/img/lecture/11-Jovian Planets 2.jpg").Permalink}}',
+                '{{(resources.Get "/img/lecture/12-KUIPER BELT.png").Permalink}}',
+
+                '{{(resources.Get "/img/journey/sun.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/sun1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/sun2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/sun3-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/mercury-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/mercury1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/mercury2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/venus-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/venus1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/venus2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/earth.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/earth1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/earth2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/earth3-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/mars-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/mars1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/mars2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/jupiter-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/jupiter1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/jupiter2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/jupiter3-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/saturn-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/saturn1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/saturn2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/saturn3-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/uranus-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/uranus1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/uranus2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/uranus3-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/neptune-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/neptune1-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/neptune2-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/neptune3-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/comet_PNG38 (1).png").Permalink}}',
+                '{{(resources.Get "/img/lecture/comet-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/asteroid.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/asteroid-cropped.png").Permalink}}',
+                '{{(resources.Get "/img/journey/astronaut.png").Permalink}}',
+                '{{(resources.Get "/img/lecture/BACKGROUND].jpg").Permalink}}',
+            ];
+
+            // works
+            // for (let i = 0; i < list.length; i++) {
+            //     await image.load(list[i]);
+            // }
+
+            list.reduce(async (prevPromise, url) => {
+                await prevPromise;
+                return image.load(url);
+            }, Promise.resolve());
+
+        // })();
+
+
         await intro();
         await lesson();
         await quiz1();
