@@ -3,44 +3,44 @@
 const quiz3 = async ()=>{
     const imgs = {
         splashscreen: {
-            url: 'http://localhost/img/quiz3/4%20words,%201%20picture.jpg',
+            url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/4%20words,%201%20picture.jpg',
         },
         quizzes: {
             q1: {
-                url: 'http://localhost/img/quiz3/Q1%20.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q1%20.png',
             },
             q2: {
-                url: 'http://localhost/img/quiz3/Q2.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q2.png',
             },
             q3: {
-                url: 'http://localhost/img/quiz3/Q3.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q3.png',
             },
             q4: {
-                url: 'http://localhost/img/quiz3/Q4.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q4.png',
             },
             q5: {
-                url: 'http://localhost/img/quiz3/Q5.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q5.png',
             },
             q6: {
-                url: 'http://localhost/img/quiz3/Q6.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q6.png',
             },
             q7: {
-                url: 'http://localhost/img/quiz3/Q7.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q7.png',
             },
             q8: {
-                url: 'http://localhost/img/quiz3/Q8.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q8.png',
             },
             q9: {
-                url: 'http://localhost/img/quiz3/Q9.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q9.png',
             },
             q10: {
-                url: 'http://localhost/img/quiz3/Q10.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q10.png',
             },
         },
         answers: {
             ans1: {
                 id: "1",
-                url: 'http://localhost/img/quiz3/Q1A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q1A.png',
                 w: 654,
                 h: 382,
                 scaleX: 370 / 654,
@@ -48,7 +48,7 @@ const quiz3 = async ()=>{
             },
             ans2: {
                 id: "2",
-                url: 'http://localhost/img/quiz3/Q2A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q2A.png',
                 w: 816,
                 h: 678,
                 scaleX: 370 / 816,
@@ -56,7 +56,7 @@ const quiz3 = async ()=>{
             },
             ans3: {
                 id: "3",
-                url: 'http://localhost/img/quiz3/Q3A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q3A.png',
                 w: 1120,
                 h: 461,
                 scaleX: 370 / 1120,
@@ -64,7 +64,7 @@ const quiz3 = async ()=>{
             },
             ans4: {
                 id: "4",
-                url: 'http://localhost/img/quiz3/Q4A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q4A.png',
                 w: 250,
                 h: 100,
                 scaleX: 370 / 250,
@@ -72,7 +72,7 @@ const quiz3 = async ()=>{
             },
             ans5: {
                 id: "5",
-                url: 'http://localhost/img/quiz3/Q5A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q5A.png',
                 w: 654,
                 h: 382,
                 scaleX: 370 / 654,
@@ -80,7 +80,7 @@ const quiz3 = async ()=>{
             },
             ans6: {
                 id: "6",
-                url: 'http://localhost/img/quiz3/Q6A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q6A.png',
                 w: 379,
                 h: 379,
                 scaleX: 370 / 379,
@@ -88,7 +88,7 @@ const quiz3 = async ()=>{
             },
             ans7: {
                 id: "7",
-                url: 'http://localhost/img/quiz3/q7a.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/q7a.png',
                 w: 454,
                 h: 76,
                 scaleX: 370 / 454,
@@ -96,7 +96,7 @@ const quiz3 = async ()=>{
             },
             ans8: {
                 id: "8",
-                url: 'http://localhost/img/quiz3/Q8A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q8A.png',
                 w: 269,
                 h: 269,
                 scaleX: 370 / 269,
@@ -104,7 +104,7 @@ const quiz3 = async ()=>{
             },
             ans9: {
                 id: "9",
-                url: 'http://localhost/img/quiz3/Q9A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q9A.png',
                 w: 209,
                 h: 53,
                 scaleX: 370 / 209,
@@ -112,7 +112,7 @@ const quiz3 = async ()=>{
             },
             ans10: {
                 id: "10",
-                url: 'http://localhost/img/quiz3/Q10A.png',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz3/Q10A.png',
                 w: 1919,
                 h: 1784,
                 scaleX: 370 / 1919,
