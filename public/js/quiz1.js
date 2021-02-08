@@ -104,14 +104,14 @@ const quiz1 = async ()=>{
     }
 
     const intro = async ()=>{
-        bg.addItem(new CanvasImage(await image.load('http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/quiz1/TRANSITION%20LECTURE%20TO%20GAME.png'), 0, 0, 1920, 1080));
+        bg.addItem(new CanvasImage(await image.load('http://localhost/img/quiz1/TRANSITION%20LECTURE%20TO%20GAME.png'), 0, 0, 1920, 1080));
         bg.draw();
         await new Promise(resolve=>{
             fg.addEventListener("click", ()=>resolve());
         })
     
         bg.removeAllItems();
-        bg.addItem(new CanvasImage(await image.load('http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/quiz1/front%20wanderers%20%282%29.jpg'), 0, 0, 1920, 1080));
+        bg.addItem(new CanvasImage(await image.load('http://localhost/img/quiz1/front%20wanderers%20%282%29.jpg'), 0, 0, 1920, 1080));
         bg.draw();
         await new Promise(resolve=>{
             fg.addEventListener("click", ()=>resolve());
@@ -229,7 +229,7 @@ const quiz1 = async ()=>{
                 bg.removeAllItems();
                 bg.addItem(
                     new CanvasImage(
-                        await image.load('http://wa.lan/.eman/emandeguzman.github.io/ziel/public/img/quiz1/1-%20GAME.jpg'),
+                        await image.load('http://localhost/img/quiz1/1-%20GAME.jpg'),
                         0,
                         0,
                         1920,
