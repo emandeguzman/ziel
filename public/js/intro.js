@@ -2,7 +2,7 @@
 
 async function intro() {
     const imgList = [
-        'https://emandeguzman.github.io/ziel/public/img/lecture/1-%20COVER.png',
+        'https://emandeguzman.github.io/ziel/public/img/lecture/1-%20COVER.jpg',
         'https://emandeguzman.github.io/ziel/public/img/lecture/2-%20Preface.jpg',
         'https://emandeguzman.github.io/ziel/public/img/lecture/3-%20TRANSITION.jpg',
         'https://emandeguzman.github.io/ziel/public/img/lecture/4-%20SOLAR%20SYSTEM%206.jpg',

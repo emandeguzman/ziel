@@ -2,7 +2,7 @@
 
 async function intro() {
     const imgList = [
-        '{{(resources.Get "/img/lecture/1- COVER.png").Permalink}}',
+        '{{(resources.Get "/img/lecture/1- COVER.jpg").Permalink}}',
         '{{(resources.Get "/img/lecture/2- Preface.jpg").Permalink}}',
         '{{(resources.Get "/img/lecture/3- TRANSITION.jpg").Permalink}}',
         '{{(resources.Get "/img/lecture/4- SOLAR SYSTEM 6.jpg").Permalink}}',
