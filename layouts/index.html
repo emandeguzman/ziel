@@ -67,6 +67,7 @@
 <script src='{{(resources.Get "/js/lesson.js"  | resources.ExecuteAsTemplate "js/lesson.js" . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/quiz1.js"   | resources.ExecuteAsTemplate "js/quiz1.js"  . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/quiz2.js"   | resources.ExecuteAsTemplate "js/quiz2.js"  . ).Permalink}}'></script>
+<script src='{{(resources.Get "/js/quiz3.js"   | resources.ExecuteAsTemplate "js/quiz3.js"  . ).Permalink}}'></script>
 
 <script>
     const clientRect = document.body.getBoundingClientRect();
@@ -150,10 +151,11 @@
         // })();
 
 
-        await intro();
-        await lesson();
-        await quiz1();
-        await quiz2();
+        // await intro();
+        // await lesson();
+        // await quiz1();
+        // await quiz2();
+        await quiz3();
         console.log("end");
 
     })();

@@ -19,7 +19,7 @@ class Image {
                 })();
             }
             else {
-                console.log(`loading ${imgurl}`);
+                // console.log(`loading ${imgurl}`);
                 const img = document.createElement("IMG");
                 img.setAttribute("status", "not-loaded");
                 // document.body.appendChild(img);
@@ -27,7 +27,7 @@ class Image {
                 img.addEventListener(
                     "load", 
                     ()=>{
-                        console.log('LOADED ', imgurl, img.width);
+                        // console.log('LOADED ', imgurl, img.width);
                         img.setAttribute("data-status", "loaded");
                         resolve(img);
                     },

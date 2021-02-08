@@ -19,7 +19,7 @@ class Image {
                 })();
             }
             else {
-                console.log(`loading ${imgurl}`);
+                // console.log(`loading ${imgurl}`);
                 const img = document.createElement("IMG");
                 img.setAttribute("status", "not-loaded");
                 // document.body.appendChild(img);

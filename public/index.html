@@ -81,16 +81,17 @@ return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}});</script>
 
 
 
-<script src='https://emandeguzman.github.io/ziel/public/js/image.js'></script>
-<script src='https://emandeguzman.github.io/ziel/public/js/canvas.js'></script>
-<script src='https://emandeguzman.github.io/ziel/public/js/canvasItem.js'></script>
+<script src='http://wa.lan/.eman/emandeguzman.github.io/ziel/public/js/image.js'></script>
+<script src='http://wa.lan/.eman/emandeguzman.github.io/ziel/public/js/canvas.js'></script>
+<script src='http://wa.lan/.eman/emandeguzman.github.io/ziel/public/js/canvasItem.js'></script>
 
-<script src='https://emandeguzman.github.io/ziel/public/js/canvasImage.js'></script>
+<script src='http://wa.lan/.eman/emandeguzman.github.io/ziel/public/js/canvasImage.js'></script>
 
-<script src='https://emandeguzman.github.io/ziel/public/js/intro.js'></script>
-<script src='https://emandeguzman.github.io/ziel/public/js/lesson.js'></script>
-<script src='https://emandeguzman.github.io/ziel/public/js/quiz1.js'></script>
-<script src='https://emandeguzman.github.io/ziel/public/js/quiz2.js'></script>
+<script src='http://wa.lan/.eman/emandeguzman.github.io/ziel/public/js/intro.js'></script>
+<script src='http://wa.lan/.eman/emandeguzman.github.io/ziel/public/js/lesson.js'></script>
+<script src='http://wa.lan/.eman/emandeguzman.github.io/ziel/public/js/quiz1.js'></script>
+<script src='http://wa.lan/.eman/emandeguzman.github.io/ziel/public/js/quiz2.js'></script>
+
 
 <script>
     const clientRect = document.body.getBoundingClientRect();
@@ -100,10 +101,85 @@ return function(fn){loaded?setTimeout(fn,0):fns.push(fn)}});</script>
     const image = new Image();
 
     (async ()=>{
+        
+        
+            list =  [
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/1-%20COVER.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/2-%20Preface.jpg',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/3-%20TRANSITION.jpg',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/4-%20SOLAR%20SYSTEM%206.jpg',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/5-SS%201.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/5-SS%202.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/5-SS%203.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/6-PLANETS%20.jpg',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/7-%203%20CRITERIA.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/8-%20PLUTO.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/9-%20Terrestrial%20Planets%201.jpg',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/9-%20Terrestrial%20Planets%202.jpg',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/10-ASTEROID%20BELT%201.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/11-Jovian%20Planets%201.jpg',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/11-Jovian%20Planets%202.jpg',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/12-KUIPER%20BELT.png',
+
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/sun.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/sun1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/sun2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/sun3-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/mercury-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/mercury1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/mercury2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/venus-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/venus1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/venus2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/earth.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/earth1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/earth2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/earth3-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/mars-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/mars1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/mars2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/jupiter-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/jupiter1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/jupiter2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/jupiter3-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/saturn-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/saturn1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/saturn2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/saturn3-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/uranus-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/uranus1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/uranus2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/uranus3-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/neptune-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/neptune1-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/neptune2-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/neptune3-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/comet_PNG38%20%281%29.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/comet-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/asteroid.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/asteroid-cropped.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/journey\/astronaut.png',
+                'http:\/\/wa.lan\/.eman\/emandeguzman.github.io\/ziel\/public\/img\/lecture\/BACKGROUND].jpg',
+            ];
+
+            
+            
+            
+            
+
+            list.reduce(async (prevPromise, url) => {
+                await prevPromise;
+                return image.load(url);
+            }, Promise.resolve());
+
+        
+
+
         await intro();
         await lesson();
         await quiz1();
         await quiz2();
+        
         console.log("end");
 
     })();
