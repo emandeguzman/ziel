@@ -130,34 +130,14 @@ const quiz3 = async ()=>{
             },
         }        
     }
-    const clearCanvas = ()=>{
-        bg.removeAllItems();
-        mid.removeAllItems();
-        fg.removeAllItems();
-    
-        bg.clear();
-        mid.clear();
-        fg.clear();
-    }
-
-    const drawBg = ()=>{
-        return new Promise((resolve)=>{
-            (async ()=>{
-                const canvas = bg;
-                canvas.addItem(new CanvasImage(await image.load(imgs.splashscreen.url), 0, 0, 1920, 1080));
-                canvas.draw();
-                fg.addEventListener("click", ()=>resolve(), {once: true});
-            })();
-        });
-    }
 
     const random = (min, max)=>{
         return Math.round(Math.random() * (max - min) + min);
     }
 
     //#region MAIN
-    await clearCanvas();
-    // await drawBg();
+    await clearAllCanvas();
+    await drawSplash(imgs.splashscreen.url);
 
     await new Promise(resolve=>{
         (async()=>{
