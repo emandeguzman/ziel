@@ -313,13 +313,6 @@ const quiz4 = async ()=>{
     await clearAllCanvas();
     await drawSplash(imgs.splashscreen.url);
 
-    // await new Promise(resolve=>{
-    //     (async()=>{
-    //         for(for )
-    //         resolve();
-    //     })()
-    // })
-
     const canvas = fg;
     await imgs.items.reduce(async (prevPromise, item) => {
         await prevPromise;
@@ -364,31 +357,6 @@ const quiz4 = async ()=>{
             })();
 
         })
-
-        // return new Promise(resolve=>{
-        //     (async ()=>{
-
-        //         // const question = item.question;
-        //         // canvas.removeAllItems();
-        //         // canvas.addItem(new CanvasImage(await image.load(question.bg), 0, 0, 1920, 1080));
-        //         // canvas.draw();
-        //         // (f = function (){
-        //         //     fg.addEventListener(
-        //         //         "click",
-        //         //         (e)=>{
-        //         //             const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
-        //         //             const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
-
-        //         //             const clicked = question.choices.find(c=>{
-        //         //                 // (x, y, path, ctx = fg.ctx, originX = 0, originY = 0, scaleX = 1, scaleY = 1)=>{
-        //         //                 return isInPath(x, y, c.path);
-        //         //             })
-
-        //         //             if (clicked) resolve();
-        //         //         },
-        //         //         {once: true});
-        //         // })();
-        //     });
-        // });
     }, Promise.resolve());
+    //#endregion
 }

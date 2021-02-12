@@ -69,6 +69,7 @@
 <script src='{{(resources.Get "/js/quiz2.js"   | resources.ExecuteAsTemplate "js/quiz2.js"  . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/quiz3.js"   | resources.ExecuteAsTemplate "js/quiz3.js"  . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/quiz4.js"   | resources.ExecuteAsTemplate "js/quiz4.js"  . ).Permalink}}'></script>
+<script src='{{(resources.Get "/js/quiz5.js"   | resources.ExecuteAsTemplate "js/quiz5.js"  . ).Permalink}}'></script>
 
 <script>
     const clientRect = document.body.getBoundingClientRect();
@@ -108,7 +109,7 @@
         ctx.scale(scaleX, scaleY);
 
         retval = ctx.isPointInPath(p, x, y);
-        
+
         ctx.restore();
         
         return retval;
@@ -187,7 +188,8 @@
         // await quiz1();
         // await quiz2();
         // await quiz3();
-        await quiz4();
+        // await quiz4();
+        await quiz5();
         console.log("end");
 
     })();
