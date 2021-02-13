@@ -473,10 +473,24 @@ const quiz2 = async ()=>{
     // await drawTargets();
     await drawDraggables();
 
+    let score;
     do {
         await getAnswers();
         if (await submitAnswers()) break;
     } while(true);
+
+    score = 0;
+
+    targets.map(target=>{
+        if (target.name != "base"){
+            if (target.name == target.draggable.name) {
+                score++;
+            }
+        }
+    })
+
+    return score;
+
     // console.log("quiz2 end")
     //#endregion
 }

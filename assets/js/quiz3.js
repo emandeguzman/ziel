@@ -139,6 +139,8 @@ const quiz3 = async ()=>{
     await clearAllCanvas();
     await drawSplash(imgs.splashscreen.url);
 
+    let score = 0;
+
     await new Promise(resolve=>{
         (async()=>{
             const canvas = bg;
@@ -148,9 +150,9 @@ const quiz3 = async ()=>{
             for (let q = 1; q <= 10; q++) {
                 //#region build choices
                 const ansPos = random(0,3);
-                console.log(`ansPos`, ansPos)
+                // console.log(`ansPos`, ansPos)
                 const ansItem = imgs.answers[`ans${q}`];
-                console.log(`ansItem.id`, ansItem.id)
+                // console.log(`ansItem.id`, ansItem.id)
                 const choices = []
                 while(choices.length < ansPos) {
                     const choice = imgs.answers[`ans${random(1,10)}`];
@@ -231,6 +233,8 @@ const quiz3 = async ()=>{
                                 }
 
                                 if (clicked) {
+                                    // console.log(clicked)
+                                    if (clicked.id == ansItem.id) score++;
                                     resolve();
                                     return;
                                 }
@@ -248,4 +252,6 @@ const quiz3 = async ()=>{
             resolve();
         })()
     })
+
+    return score;
 }

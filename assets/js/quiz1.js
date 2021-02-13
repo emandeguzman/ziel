@@ -93,16 +93,6 @@ const quiz1 = async ()=>{
 
     ];
 
-    const clearCanvas = ()=>{
-        bg.removeAllItems();
-        mid.removeAllItems();
-        fg.removeAllItems();
-    
-        bg.clear();
-        mid.clear();
-        fg.clear();
-    }
-
     const intro = async ()=>{
         bg.addItem(new CanvasImage(await image.load('{{(resources.Get "/img/quiz1/TRANSITION LECTURE TO GAME.png").Permalink}}'), 0, 0, 1920, 1080));
         bg.draw();
@@ -150,17 +140,17 @@ const quiz1 = async ()=>{
                 }
 
                 const onMouseDown = (evt)=>{
-                    console.log("mouse down")
+                    // console.log("mouse down")
                     sX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
                     sY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
                     // console.log("mousedown", evt.offsetX, evt.offsetY, sX, sY);
 
                     startItem = itemOnPoint(sX,sY);
-                    console.log(`startItem ${startItem?.name}`);
+                    // console.log(`startItem ${startItem?.name}`);
                 }
 
                 const onMouseMove = (evt)=>{
-                    console.log("mouse move")
+                    // console.log("mouse move")
                     if (!startItem) return;
 
                     // console.log("mousemove", evt.offsetX, evt.offsetY)
@@ -180,7 +170,7 @@ const quiz1 = async ()=>{
                 }
 
                 const onMouseUp = (evt)=>{
-                    console.log("mouseup")
+                    // console.log("mouseup")
 
                     do {
                         if (!startItem) break;;
@@ -253,10 +243,10 @@ const quiz1 = async ()=>{
 
     const submitAnswers = ()=>{
         return new Promise(resolve=>{
-            console.log("append dialog")
+            // console.log("append dialog")
             document.body.appendChild(document.querySelector("#template-dialog").content.cloneNode(true));
             const dialog = document.querySelector("#dialog");
-            console.log(dialog);
+            // console.log(dialog);
             dialog.querySelector("#btnYes").addEventListener("click", ()=>{
                 dialog.remove();
                 resolve(true);
@@ -271,11 +261,23 @@ const quiz1 = async ()=>{
     /*
      * MAIN STARTS HERE
      */
-    clearCanvas();
+    clearAllCanvas();
     await intro();
+    let score;
     do {
         await getAnswers();
-        if (await submitAnswers()) break;
+        if (await submitAnswers()) {
+            score = 0;
+            items.map(item=>{
+                if (item.type == "planet") {
+                    if (`ans_${item.name}` == item.ans.name) {
+                        score++;
+                    }
+                }
+            })
+            break;
+        }
     } while(true);
+    return score;
 }
 

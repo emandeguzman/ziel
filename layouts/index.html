@@ -70,6 +70,7 @@
 <script src='{{(resources.Get "/js/quiz3.js"   | resources.ExecuteAsTemplate "js/quiz3.js"  . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/quiz4.js"   | resources.ExecuteAsTemplate "js/quiz4.js"  . ).Permalink}}'></script>
 <script src='{{(resources.Get "/js/quiz5.js"   | resources.ExecuteAsTemplate "js/quiz5.js"  . ).Permalink}}'></script>
+<script src='{{(resources.Get "/js/scores.js"  | resources.ExecuteAsTemplate "js/scores.js" . ).Permalink}}'></script>
 
 <script>
     const clientRect = document.body.getBoundingClientRect();
@@ -77,6 +78,13 @@
     const mid = new Canvas(document.querySelector("#mid"), clientRect.width, clientRect.height);
     const fg  = new Canvas(document.querySelector("#fg" ), clientRect.width, clientRect.height);
     const image = new Image();
+    const scores = {
+        quiz1: 0,
+        quiz2: 0,
+        quiz3: 0,
+        quiz4: 0,
+        quiz5: 0,
+    }
 
     const clearAllCanvas = ()=>{
         bg.removeAllItems();
@@ -183,15 +191,15 @@
         //#endregion
 
 
-        // await intro();
-        // await lesson();
-        // await quiz1();
-        // await quiz2();
-        // await quiz3();
-        await quiz4();
-        await quiz5();
+        await intro();
+        await lesson();
+        scores.quiz1 = await quiz1();
+        scores.quiz2 = await quiz2();
+        scores.quiz3 = await quiz3();
+        scores.quiz4 = await quiz4();
+        scores.quiz5 = await quiz5();
+        await showScores(scores);
         console.log("end");
-
     })();
 </script>
 {{ end }}

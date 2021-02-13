@@ -4,11 +4,11 @@ const quiz5 = async ()=>{
 
     const imgs = {
         splashscreen: {
-            url: '{{(resources.Get "img/quiz5/the planetary lab (2).jpg").Permalink}}',
+            url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/the%20planetary%20lab%20%282%29.jpg',
         },
         quizzes: [
             {
-                url: '{{(resources.Get "img/quiz5/1. MERCURY.png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/1.%20MERCURY.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -18,7 +18,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 828.00,650.00 C 828.00,650.00 1393.00,650.00 1393.00,650.00 1393.00,650.00 1393.00,736.00 1393.00,736.00 1393.00,736.00 828.00,736.00 828.00,736.00 828.00,736.00 828.00,650.00 828.00,650.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/01.Mercury-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/01.Mercury-1.png',
                             x: 774,
                             y: 688,
                             w: 706,
@@ -53,7 +53,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 1041.00,1043.00 C 1041.00,1043.00 1634.00,1043.00 1634.00,1043.00 1634.00,1043.00 1634.00,1127.00 1634.00,1127.00 1634.00,1127.00 1041.00,1127.00 1041.00,1127.00 1041.00,1127.00 1041.00,1043.00 1041.00,1043.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/01.Mercury-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/01.Mercury-2.png',
                             x: 972,
                             y: 636,
                             w: 563,
@@ -87,7 +87,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/2. VENUS.png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/2.%20VENUS.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -97,7 +97,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 977.00,750.00 C 977.00,750.00 1757.00,750.00 1757.00,750.00 1757.00,750.00 1757.00,834.00 1757.00,834.00 1757.00,834.00 977.00,834.00 977.00,834.00 977.00,834.00 977.00,750.00 977.00,750.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/02.Venus-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/02.Venus-1.png',
                             x: 912,
                             y: 380,
                             w: 597,
@@ -132,7 +132,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 1041.00,1043.00 C 1041.00,1043.00 1628.00,1043.00 1628.00,1043.00 1628.00,1043.00 1799.00,1043.00 1799.00,1043.00 1803.89,1042.98 1816.68,1040.72 1820.36,1044.01 1822.03,1045.49 1821.31,1048.07 1821.22,1050.00 1821.22,1050.00 1821.22,1066.00 1821.22,1066.00 1821.22,1066.00 1821.22,1088.00 1821.22,1088.00 1821.22,1088.00 1821.22,1112.00 1821.22,1112.00 1821.22,1112.00 1821.22,1127.00 1821.22,1127.00 1821.22,1127.00 1041.00,1127.00 1041.00,1127.00 1041.00,1127.00 1041.00,1043.00 1041.00,1043.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/02.Venus-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/02.Venus-2.png',
                             x: 972,
                             y: 649,
                             w: 566,
@@ -166,7 +166,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/3. EARTH (2).png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/3.%20EARTH%20%282%29.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -176,7 +176,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 702.00,354.00 C 702.00,354.00 1125.00,354.00 1125.00,354.00 1125.00,354.00 1125.00,438.00 1125.00,438.00 1125.00,438.00 702.00,438.00 702.00,438.00 702.00,438.00 702.00,354.00 702.00,354.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/03.Earth-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/03.Earth-1.png',
                             x: 655,
                             y: 412,
                             w: 604,
@@ -211,7 +211,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 977.00,750.00 C 977.00,750.00 1410.00,750.00 1410.00,750.00 1410.00,750.00 1410.00,834.00 1410.00,834.00 1410.00,834.00 977.00,834.00 977.00,834.00 977.00,834.00 977.00,750.00 977.00,750.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/03.Earth-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/03.Earth-2.png',
                             x: 912,
                             y: 371,
                             w: 604,
@@ -245,7 +245,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/4. MARS.png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/4.%20MARS.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -255,7 +255,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 977.00,750.00 C 977.00,750.00 1428.00,750.00 1428.00,750.00 1428.00,750.00 1428.00,834.00 1428.00,834.00 1428.00,834.00 977.00,834.00 977.00,834.00 977.00,834.00 977.00,750.00 977.00,750.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/04.Mars-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/04.Mars-1.png',
                             x: 912,
                             y: 380,
                             w: 603,
@@ -290,7 +290,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 1041.00,1043.00 C 1041.00,1043.00 1634.00,1043.00 1634.00,1043.00 1634.00,1043.00 1634.00,1127.00 1634.00,1127.00 1634.00,1127.00 1041.00,1127.00 1041.00,1127.00 1041.00,1127.00 1041.00,1043.00 1041.00,1043.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/04.Mars-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/04.Mars-2.png',
                             x: 972,
                             y: 649,
                             w: 681,
@@ -324,7 +324,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/5. JUPITER.png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/5.%20JUPITER.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -334,7 +334,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 700.00,552.00 C 700.00,552.00 1609.00,552.00 1609.00,552.00 1609.00,552.00 1609.00,636.00 1609.00,636.00 1609.00,636.00 700.00,636.00 700.00,636.00 700.00,636.00 700.00,552.00 700.00,552.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/05.Jupiter-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/05.Jupiter-1.png',
                             x: 653,
                             y: 597,
                             w: 618,
@@ -369,7 +369,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 799.00,849.00 C 799.00,849.00 1557.00,849.00 1557.00,849.00 1557.00,849.00 1557.00,933.00 1557.00,933.00 1557.00,933.00 799.00,933.00 799.00,933.00 799.00,933.00 799.00,849.00 799.00,849.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/05.Jupiter-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/05.Jupiter-2.png',
                             x: 745,
                             // x: 795,
                             y: 472,
@@ -404,7 +404,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/6. SATURN.png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/6.%20SATURN.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -414,7 +414,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 700.00,552.00 C 700.00,552.00 1250.00,552.00 1250.00,552.00 1250.00,552.00 1250.00,636.00 1250.00,636.00 1250.00,636.00 700.00,636.00 700.00,636.00 700.00,636.00 700.00,552.00 700.00,552.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/06.Saturn-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/06.Saturn-1.png',
                             x: 653,
                             y: 598,
                             w: 597,
@@ -449,7 +449,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 977.00,750.00 C 977.00,750.00 1524.00,750.00 1524.00,750.00 1524.00,750.00 1524.00,834.00 1524.00,834.00 1524.00,834.00 977.00,834.00 977.00,834.00 977.00,834.00 977.00,750.00 977.00,750.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/06.Saturn-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/06.Saturn-2.png',
                             x: 912,
                             y: 374,
                             w: 597,
@@ -483,7 +483,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/7. URANUS.png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/7.%20URANUS.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -493,7 +493,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 702.00,453.00 C 702.00,453.00 1004.00,453.00 1004.00,453.00 1004.00,453.00 1004.00,537.00 1004.00,537.00 1004.00,537.00 702.00,537.00 702.00,537.00 702.00,537.00 702.00,453.00 702.00,453.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/07.Uranus-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/07.Uranus-1.png',
                             x: 655,
                             y: 504,
                             w: 501,
@@ -528,7 +528,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 799.00,849.00 C 799.00,849.00 1674.00,849.00 1674.00,849.00 1674.00,849.00 1674.00,933.00 1674.00,933.00 1674.00,933.00 799.00,933.00 799.00,933.00 799.00,933.00 799.00,849.00 799.00,849.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/07.Uranus-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/07.Uranus-2.png',
                             x: 746,
                             y: 468,
                             w: 684,
@@ -562,7 +562,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/8. NEPTUNE.png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/8.%20NEPTUNE.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -572,7 +572,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 702.00,453.00 C 702.00,453.00 948.00,453.00 948.00,453.00 948.00,453.00 948.00,537.00 948.00,537.00 948.00,537.00 702.00,537.00 702.00,537.00 702.00,537.00 702.00,453.00 702.00,453.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/08.Neptune-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/08.Neptune-1.png',
                             x: 655,
                             y: 504,
                             w: 501,
@@ -607,7 +607,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 1041.00,1043.00 C 1041.00,1043.00 1609.00,1043.00 1609.00,1043.00 1609.00,1043.00 1609.00,1127.00 1609.00,1127.00 1609.00,1127.00 1041.00,1127.00 1041.00,1127.00 1041.00,1127.00 1041.00,1043.00 1041.00,1043.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/08.Neptune-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/08.Neptune-2.png',
                             x: 972,
                             y: 650,
                             w: 566,
@@ -641,7 +641,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/9. SUN .png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/9.%20SUN%20.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -651,7 +651,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 702.00,354.00 C 702.00,354.00 1103.00,354.00 1103.00,354.00 1103.00,354.00 1103.00,438.00 1103.00,438.00 1103.00,438.00 702.00,438.00 702.00,438.00 702.00,438.00 702.00,354.00 702.00,354.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/09.Sun-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/09.Sun-1.png',
                             x: 655,
                             y: 410,
                             w: 532,
@@ -686,7 +686,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 1065.00,849.00 C 1065.00,849.00 1814.00,849.00 1814.00,849.00 1814.00,849.00 1814.00,933.00 1814.00,933.00 1814.00,933.00 1065.00,933.00 1065.00,933.00 1065.00,933.00 1065.00,849.00 1065.00,849.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/09.Sun-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/09.Sun-2.png',
                             x: 995,
                             y: 468,
                             w: 603,
@@ -720,7 +720,7 @@ const quiz5 = async ()=>{
                 ]
             },
             {
-                url: '{{(resources.Get "img/quiz5/10. MOON (2).png").Permalink}}',
+                url: 'https://emandeguzman.github.io/ziel/public/img/quiz5/10.%20MOON%20%282%29.png',
                 w: 2053,
                 h: 1152,
                 scaleX: 1920 / 2053,
@@ -730,7 +730,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 702.00,354.00 C 702.00,354.00 1103.00,354.00 1103.00,354.00 1103.00,354.00 1103.00,438.00 1103.00,438.00 1103.00,438.00 702.00,438.00 702.00,438.00 702.00,438.00 702.00,354.00 702.00,354.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/10.Moon-1.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/10.Moon-1.png',
                             x: 655 + 0,
                             y: 411 + 0,
                             w: 501,
@@ -765,7 +765,7 @@ const quiz5 = async ()=>{
                         answer: null,
                         path: `M 1065.00,849.00 C 1065.00,849.00 1818.00,849.00 1818.00,849.00 1818.00,849.00 1818.00,932.00 1818.00,932.00 1818.00,932.00 1065.00,932.00 1065.00,932.00 1065.00,932.00 1065.00,849.00 1065.00,849.00 Z`,
                         choices: {
-                            imgurl: '{{(resources.Get "img/quiz5/10.Moon-2.png").Permalink}}',
+                            imgurl: 'https://emandeguzman.github.io/ziel/public/img/quiz5/10.Moon-2.png',
                             x: 994,
                             y: 472,
                             w: 603,
