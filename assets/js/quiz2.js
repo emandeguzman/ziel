@@ -449,23 +449,6 @@ const quiz2 = async ()=>{
         });
     }
 
-    const submitAnswers = ()=>{
-        return new Promise(resolve=>{
-            // console.log("append dialog")
-            document.body.appendChild(document.querySelector("#template-dialog").content.cloneNode(true));
-            const dialog = document.querySelector("#dialog");
-            // console.log(dialog);
-            dialog.querySelector("#btnYes").addEventListener("click", ()=>{
-                dialog.remove();
-                resolve(true);
-            });
-            dialog.querySelector("#btnNo").addEventListener("click", ()=>{
-                dialog.remove();
-                resolve(false);
-            });
-        })
-    }
-
     //#region MAIN
     await clearCanvas();
     await drawBg();
@@ -476,7 +459,7 @@ const quiz2 = async ()=>{
     let score;
     do {
         await getAnswers();
-        if (await submitAnswers()) break;
+        if (await submitAnswer()) break;
     } while(true);
 
     score = 0;

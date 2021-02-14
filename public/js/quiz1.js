@@ -241,23 +241,6 @@ const quiz1 = async ()=>{
         })
     }
 
-    const submitAnswers = ()=>{
-        return new Promise(resolve=>{
-            // console.log("append dialog")
-            document.body.appendChild(document.querySelector("#template-dialog").content.cloneNode(true));
-            const dialog = document.querySelector("#dialog");
-            // console.log(dialog);
-            dialog.querySelector("#btnYes").addEventListener("click", ()=>{
-                dialog.remove();
-                resolve(true);
-            });
-            dialog.querySelector("#btnNo").addEventListener("click", ()=>{
-                dialog.remove();
-                resolve(false);
-            });
-        })
-    }
-
     /*
      * MAIN STARTS HERE
      */
@@ -266,7 +249,7 @@ const quiz1 = async ()=>{
     let score;
     do {
         await getAnswers();
-        if (await submitAnswers()) {
+        if (await submitAnswer()) {
             score = 0;
             items.map(item=>{
                 if (item.type == "planet") {
