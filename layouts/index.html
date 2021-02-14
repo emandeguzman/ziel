@@ -84,7 +84,29 @@
         quiz3: 0,
         quiz4: 0,
         quiz5: 0,
-    }
+    };
+
+    (()=>{
+        const adjustCanvasDimension = ()=>{
+            let width;
+            let height;
+            if ((window.innerWidth * 1080 / 1920) <= window.innerHeight) {
+                width = window.innerWidth;
+                height = window.innerWidth * 1080 / 1920;
+            }
+            else {
+                width = window.innerHeight * 1920 / 1080;
+                height = window.innerHeight;
+            }
+            document.querySelectorAll("canvas").forEach(canvas=>{
+                canvas.style.width = `${width}px`;
+                canvas.style.height = `${height}px`;
+            })
+        }
+
+        adjustCanvasDimension();
+        window.addEventListener("resize", adjustCanvasDimension);
+    })();
 
     const clearAllCanvas = ()=>{
         bg.removeAllItems();
@@ -222,7 +244,7 @@
             '{{(resources.Get "img/quiz3/Q9A.png").Permalink}}',
             '{{(resources.Get "img/quiz3/Q10A.png").Permalink}}',            
 
-            '{{(resources.Get "img/quiz4/LEVEL4/Planet Escape (2).jpg").Permalink}}',
+            `{{(resources.Get "img/quiz4/LEVEL4/Planet Escape (2).jpg").Permalink}}`,
             `{{(resources.Get "img/quiz4/LEVEL4/Q1.png").Permalink}}`,
             `{{(resources.Get "img/quiz4/QUIZ4/Q1.png").Permalink}}`,
             `{{(resources.Get "img/quiz4/LEVEL4/Q2.png").Permalink}}`,

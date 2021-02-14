@@ -20,13 +20,14 @@ canvas {
     // border: 1px solid #000;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 50%;
     // right: 0;
     // bottom: 0;
-    width: calc(100% - 2px);
-    height: calc((100% * 1080px / 1920px) - 2px);
+    // width: calc(100% - 2px);
+    // height: calc((100% * 1080px / 1920px) - 2px);
 
     box-sizing: border-box;
+    transform: translateX(-50%);
 
     // // bottom: 0;
     // // right: 0;

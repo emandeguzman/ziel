@@ -476,7 +476,7 @@ async function lesson() {
                 "click",
                 (evt)=>{
                     (async()=>{
-                        console.log("main click loop");
+                        // console.log("main click loop");
                         //#region convert clicked coordinates
                         const clickX = Math.round(evt.offsetX * 1920 / fg.canvas.offsetWidth);
                         const clickY = Math.round(evt.offsetY * 1080 / fg.canvas.offsetHeight);
