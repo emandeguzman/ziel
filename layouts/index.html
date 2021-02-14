@@ -153,6 +153,51 @@
         return retval;
     }
 
+    const enableTouchEvents = () => {
+        const canvas = fg.canvas;
+
+        canvas.addEventListener(
+            "touchstart",
+            (e)=>{
+                const touch = e.touches[0];
+                const mouseEvent = new MouseEvent("mousedown", {
+                    clientX: touch.clientX,
+                    clientY: touch.clientY
+                });
+                console.log(`dispatch mousedown`, mouseEvent)
+                canvas.dispatchEvent(mouseEvent);   
+            },
+            false
+        );
+
+        canvas.addEventListener(
+            "touchend",
+            (e)=>{
+                const mouseEvent = new MouseEvent("mouseup", {
+                    clientX: e.changedTouches[0].clientX,
+                    clientY: e.changedTouches[0].clientY
+                });
+                console.log(`dispatch mouseup`, mouseEvent)
+                canvas.dispatchEvent(mouseEvent);
+            },
+            false
+        );
+
+        canvas.addEventListener(
+            "touchmove",
+            (e)=>{
+                e.preventDefault();
+                const touch = e.touches[0];
+                const mouseEvent = new MouseEvent("mousemove", {
+                    clientX: touch.clientX,
+                    clientY: touch.clientY
+                });
+                canvas.dispatchEvent(mouseEvent);
+            },
+            false
+        );
+    }
+
     (async ()=>{
         //#region preload images
         [
@@ -309,6 +354,7 @@
         
         //#endregion
 
+        enableTouchEvents();
 
         await intro();
         await lesson();
