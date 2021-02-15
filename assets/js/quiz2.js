@@ -313,6 +313,8 @@ const quiz2 = async ()=>{
             const onMouseDown = (e)=>{
                 const x = Math.round(e.offsetX * 1920 / fg.canvas.offsetWidth);
                 const y = Math.round(e.offsetY * 1080 / fg.canvas.offsetHeight);
+                // const x = Math.round(e.clientX * 1920 / fg.canvas.offsetWidth);
+                // const y = Math.round(e.clientY * 1080 / fg.canvas.offsetHeight);
 
                 //#region get clicked item
                 const ctx = fg.ctx;

@@ -16,9 +16,9 @@
 
 
 <!-- <script src='{ {(resources.Get "/js/test.js").Permalink}}'></script> -->
-<script src='{{(resources.Get "/js/image.js").Permalink}}'></script>
-<script src='{{(resources.Get "/js/canvas.js").Permalink}}'></script>
-<script src='{{(resources.Get "/js/canvasItem.js").Permalink}}'></script>
+<script src='{{(resources.Get "/js/image.js").RelPermalink}}'></script>
+<script src='{{(resources.Get "/js/canvas.js").RelPermalink}}'></script>
+<script src='{{(resources.Get "/js/canvasItem.js").RelPermalink}}'></script>
 <!-- <script src='{ {(resources.Get "/js/canvasShape.js").Permalink}}'></script> -->
 <script src='{{(resources.Get "/js/canvasImage.js").Permalink}}'></script>
 <!-- <script src='{ {(resources.Get "/js/celestialBody.js").Permalink}}'></script> -->
@@ -162,7 +162,9 @@
                 const touch = e.touches[0];
                 const mouseEvent = new MouseEvent("mousedown", {
                     clientX: touch.clientX,
-                    clientY: touch.clientY
+                    clientY: touch.clientY,
+                    screenX: touch.screenX,
+                    screenY: touch.screenY,
                 });
                 console.log(`dispatch mousedown`, mouseEvent)
                 canvas.dispatchEvent(mouseEvent);   
@@ -175,7 +177,9 @@
             (e)=>{
                 const mouseEvent = new MouseEvent("mouseup", {
                     clientX: e.changedTouches[0].clientX,
-                    clientY: e.changedTouches[0].clientY
+                    clientY: e.changedTouches[0].clientY,
+                    screenX: e.changedTouches[0].screenX,
+                    screenY: e.changedTouches[0].screenY,
                 });
                 console.log(`dispatch mouseup`, mouseEvent)
                 canvas.dispatchEvent(mouseEvent);
@@ -190,7 +194,9 @@
                 const touch = e.touches[0];
                 const mouseEvent = new MouseEvent("mousemove", {
                     clientX: touch.clientX,
-                    clientY: touch.clientY
+                    clientY: touch.clientY,
+                    screenX: touch.screenX,
+                    screenY: touch.screenY,
                 });
                 canvas.dispatchEvent(mouseEvent);
             },
@@ -356,9 +362,9 @@
 
         enableTouchEvents();
 
-        await intro();
-        await lesson();
-        scores.quiz1 = await quiz1();
+        // await intro();
+        // await lesson();
+        // scores.quiz1 = await quiz1();
         scores.quiz2 = await quiz2();
         scores.quiz3 = await quiz3();
         scores.quiz4 = await quiz4();
