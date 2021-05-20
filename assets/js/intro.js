@@ -1,10 +1,13 @@
 "use strict";
 
-async function intro() {
+async function intro(fg, image) {
+
+    console.log(image)
+
     const imgList = [
-        '{{(resources.Get "/img/lecture/1- COVER.jpg").Permalink}}',
-        '{{(resources.Get "/img/lecture/2- Preface.jpg").Permalink}}',
-        '{{(resources.Get "/img/lecture/3- TRANSITION.jpg").Permalink}}',
+        '{{(resources.Get "/img/lecture/Title Page.png").Permalink}}',
+        '{{(resources.Get "/img/lecture/Preface Research.png").Permalink}}',
+        '{{(resources.Get "/img/lecture/Let_s explore .png").Permalink}}',
         '{{(resources.Get "/img/lecture/4- SOLAR SYSTEM 6.jpg").Permalink}}',
         '{{(resources.Get "/img/lecture/5-SS 1.png").Permalink}}',
         '{{(resources.Get "/img/lecture/5-SS 2.png").Permalink}}',

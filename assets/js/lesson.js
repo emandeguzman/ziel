@@ -1,6 +1,6 @@
 "use strict";
 
-async function lesson() {
+async function lesson(fg, mid, bg, image) {
     const animDuration = 500;
 
     const exit = {

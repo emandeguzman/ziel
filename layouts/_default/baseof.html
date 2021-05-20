@@ -13,9 +13,9 @@
     {{- (resources.Get "/scss/style.scss" | resources.ExecuteAsTemplate "style.scss" . | toCSS $style_options | minify ).Content | safeCSS -}}
     </style>
 
-    <script>
-    {{- (resources.Get "/js/domready.js" | minify ).Content | safeJS -}}
-    </script>
+    <!-- <s cript> -->
+    <!-- // { {- (resources.Get "/js/domready.js" | minify ).Content | safeJS -}} -->
+    <!-- </s cript> -->
 </head>
 <body>
 	{{ partial "header" . }}

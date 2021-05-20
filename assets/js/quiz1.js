@@ -1,6 +1,6 @@
 "use strict";
 
-const quiz1 = async ()=>{
+const quiz1 = async (fg, mid, bg, image, clearAllCanvas, submitAnswer)=>{
     const items = [
         {   name: "mercury",
             type: "planet",

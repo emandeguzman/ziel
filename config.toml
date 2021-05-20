@@ -1,9 +1,11 @@
 # baseURL = "http://localhost/"
 # baseURL = "http://wa.lan/.eman/ziel/solarsystem2/public/"
 # baseURL = "http://wa.lan/.eman/emandeguzman.github.io/ziel/public/"
-baseURL = "https://emandeguzman.github.io/ziel/public/"
+baseURL = "https://emandeguzman.github.io/ziel/"
 languageCode = "en-us"
 title = "Solar System"
+enableInlineShortcodes = true
+publishDir = "docs"
 
 [markup.goldmark.renderer]
     unsafe = true

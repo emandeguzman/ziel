@@ -1,6 +1,6 @@
 "use strict";
 
-const quiz5 = async ()=>{
+const quiz5 = async (fg, mid, bg, image, clearAllCanvas, isInPath)=>{
 
     const imgs = {
         splashscreen: {

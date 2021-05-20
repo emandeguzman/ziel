@@ -1,6 +1,6 @@
 "use strict";
 
-const quiz3 = async ()=>{
+const quiz3 = async (fg, bg, image, clearAllCanvas, drawSplash)=>{
     const imgs = {
         splashscreen: {
             url: '{{(resources.Get "img/quiz3/4 words, 1 picture.jpg").Permalink}}',

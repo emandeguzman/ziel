@@ -1,6 +1,6 @@
 "use strict";
 
-const quiz4 = async ()=>{
+const quiz4 = async (fg, image, clearAllCanvas, drawSplash, isInPath)=>{
     const imgs = {
         splashscreen: {
             url: '{{(resources.Get "img/quiz4/LEVEL4/Planet Escape (2).jpg").Permalink}}',

@@ -1,6 +1,6 @@
-"use strict";
+// "use strict";
 
-const quiz2 = async ()=>{
+const quiz2 = async (fg, mid, bg, image, submitAnswer)=>{
 
     const targets = [
         {
@@ -349,9 +349,11 @@ const quiz2 = async ()=>{
                 // console.log(`dragging.url = ${dragging.url}`)
                 return image.load(dragging.url)
                 .then(img=>{
-                    const canvasItem = new CanvasImage(img, x - (dragging.w/2), y - (dragging.h/2), null, null, dragging.name, dragging.scaleX, dragging.scaleY, dragging.path);
-                    canvas.addItem(canvasItem);
-                    canvas.draw();
+                    if (dragging) {
+                        const canvasItem = new CanvasImage(img, x - (dragging.w/2), y - (dragging.h/2), null, null, dragging.name, dragging.scaleX, dragging.scaleY, dragging.path);
+                        canvas.addItem(canvasItem);
+                        canvas.draw();
+                    }
                 })
                 .catch(err => {
                     console.error(err)
